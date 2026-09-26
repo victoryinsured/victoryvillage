@@ -11,10 +11,12 @@
 6. Preview on desktop and mobile, then publish.
 
 ## Images
-Your two Drive photos are already linked near the top of the `<style>` block (`--hero-img` and `--match-img`).
-- The Drive files must be shared as **Anyone with the link → Viewer**, or they won't show up.
-- For faster loading, upload both photos to **GHL → Media Library**, copy their URLs, and paste them in place of the Drive links.
+Your hero photo and Career Match photo are **built into the page**, so they show up as soon as you paste it. You don't need Drive links or sharing settings.
+- Compressed copies are in `images/` if you ever want them in your GHL Media Library. To use a Media Library link instead, find `--hero-img` or `--match-img` at the bottom of the `<style>` block and replace everything inside `url('...')` with your link.
 - Search the file for `IMAGE:` to see where you can add photos to the feature cards, testimonial videos and headshots.
+
+## Glowing buttons
+The gold buttons glow gently and a light sweeps across them every few seconds. To tone the glow down, lower the numbers inside `@keyframes vv-glow`. To remove the light sweep, delete the `#vv .btn::after` rule. Visitors whose device is set to reduce motion see a still glow with no animation.
 
 ## Links
 Search the file for `LINK:`. Every "Join" and pricing button currently goes to `https://checkout.thevictoryvillage.com`, and **Log In** goes to `https://portal.thevictoryvillage.com`. Replace each one with the checkout URL for its plan.
