@@ -1,4 +1,11 @@
-# Victory Village home page for GoHighLevel
+# Victory Village pages for GoHighLevel
+
+| File | Page | Suggested GHL path |
+|---|---|---|
+| `victory-village-home.html` | Home / sales page | `/` |
+| `victory-village-support.html` | Customer support page | `/support` |
+
+Both pages link to each other: the home page menu and footer have a **Support** link to `https://thevictoryvillage.com/support`. If you publish the support page at a different path, search both files for `/support"` and update it.
 
 `victory-village-home.html` is the whole page in one file: styles, content and a little script.
 
@@ -21,3 +28,20 @@ The gold buttons glow gently and a light sweeps across them every few seconds. T
 
 ## Links
 Search the file for `LINK:`. Every "Join" and pricing button currently goes to `https://checkout.thevictoryvillage.com`, and **Log In** goes to `https://portal.thevictoryvillage.com`. Replace each one with the checkout URL for its plan.
+
+## Support page
+Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
+
+**Links to set** (search `victory-village-support.html` for `LINK:`). These are placeholders until you send the real ones:
+- **Open a Ticket:** `https://thevictoryvillage.com/support-ticket`. Point it at a GHL form or survey page.
+- **Schedule:** `https://thevictoryvillage.com/book-support-call`. Point it at your GHL booking calendar.
+- **Email Us / General Inquiries:** `support@thevictoryvillage.com`. Replace it with your real support email.
+- **Start Chat / Chat with Us:** opens the GHL chat widget if it's installed on the page (Sites → Chat Widget). If it isn't, the buttons fall back to the support email.
+
+**What works on its own:**
+- The search bar filters the FAQ as you type. Press Enter to jump to the answers.
+- Clicking a help topic card (Get Started, Account & Billing, and so on) shows only the questions about that topic.
+- The Live Chat card says **Online** Monday to Friday, 9 AM to 6 PM Eastern, and **Offline** the rest of the time.
+- FAQ questions open and close when clicked. Edit the answers in the `<details>` blocks.
+
+**Images:** every photo slot is listed at the bottom of the `<style>` block (search `IMAGE:`): the hero background, the "Still Need Help?" background, and the four Help Center cards. Until you send photos, each slot shows a matching gold/black placeholder.
