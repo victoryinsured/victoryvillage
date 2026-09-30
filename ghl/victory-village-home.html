@@ -208,6 +208,35 @@
   #vv .plan .checks { gap: 10px; flex: 1; }
   #vv .plan .checks li { font-size: 14px; color: #e3d9ca; }
   #vv .plan .btn { width: 100%; padding: 15px 10px; font-size: 13.5px; white-space: nowrap; }
+  #vv .plan .setup { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.35; color: #e3d9ca; min-height: 70px; }
+  #vv .plan.addon {
+    border: 1.5px solid rgba(217,164,65,.55);
+    background: radial-gradient(ellipse at 50% 0%, rgba(64,6,6,.85), transparent 70%), var(--card);
+    box-shadow: 0 0 50px rgba(64,6,6,.55);
+  }
+  #vv .badge-limited { background: var(--burgundy); color: var(--gold-light); border: 1px solid var(--gold); }
+  #vv .plan .spots { font-size: 13px; color: var(--gold-light); margin: 22px 0 14px; padding: 10px 12px; border: 1px dashed var(--gold-soft); border-radius: 4px; text-align: center; }
+  #vv .price small { white-space: nowrap; }
+
+  /* ---------- Strategy sessions ---------- */
+  #vv .plan .more { display: block; font-size: 13px; color: var(--gold-light); margin-top: 14px; text-decoration: underline; text-underline-offset: 3px; }
+  #vv .sessions { background: radial-gradient(ellipse at 50% 100%, rgba(64,6,6,.5), transparent 60%), var(--bg-2); border-top: 1px solid var(--line); }
+  #vv .session-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  #vv .session {
+    background: linear-gradient(180deg, #1b150f, var(--card)); border: 1px solid var(--line); border-radius: 8px;
+    padding: 26px 22px 22px; display: flex; flex-direction: column; transition: transform .25s, border-color .25s, box-shadow .25s;
+  }
+  #vv .session:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 0 34px rgba(217,164,65,.16); }
+  #vv .session-top { display: flex; flex-direction: column; gap: 14px; margin-bottom: 12px; }
+  #vv .session-ico { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--burgundy); border: 1px solid var(--gold); box-shadow: 0 0 20px rgba(217,164,65,.25); }
+  #vv .session-ico svg.ico { width: 26px; height: 26px; }
+  #vv .session h3 { font-size: 24px; }
+  #vv .session p { font-size: 14px; color: var(--muted); }
+  #vv .session p.ask { font-family: var(--serif); font-style: italic; font-size: 17px; color: #e3d9ca; margin: 14px 0 18px; flex: 1; }
+  #vv .session-link { font-size: 14px; font-weight: 600; color: var(--gold-light); display: inline-flex; gap: 8px; align-items: center; }
+  #vv .session-link:hover { color: #ffe3a3; }
+  #vv .session-note { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 34px; font-size: 14px; color: var(--muted); text-align: center; }
+  #vv .session-note b { color: var(--gold-light); }
 
   /* ---------- Testimonials ---------- */
   #vv .testi { background: var(--bg-2); border-top: 1px solid var(--line); }
@@ -273,7 +302,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 1100px) {
     #vv .perks .wrap { grid-template-columns: repeat(3, 1fr); row-gap: 22px; }
-    #vv .features-grid { grid-template-columns: repeat(2, 1fr); }
+    #vv .features-grid, #vv .session-grid { grid-template-columns: repeat(2, 1fr); }
     #vv .car-prev { left: -8px; } #vv .car-next { right: -8px; }
   }
   @media (max-width: 900px) {
@@ -298,7 +327,7 @@
     #vv .wrap { padding: 0 16px; }
     #vv .section { padding: 72px 0; }
     #vv .perks .wrap { grid-template-columns: repeat(2, 1fr); }
-    #vv .features-grid { grid-template-columns: 1fr; }
+    #vv .features-grid, #vv .session-grid { grid-template-columns: 1fr; }
     #vv .track { grid-auto-columns: 88%; }
     #vv .car-btn { display: none; }
     #vv .hero .btn, #vv .final .btn { width: 100%; }
@@ -324,6 +353,10 @@
       <symbol id="vv-book" viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></symbol>
       <symbol id="vv-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/><path d="M16 7h4v4"/></symbol>
       <symbol id="vv-heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 22l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+      <symbol id="vv-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+      <symbol id="vv-lanes" viewBox="0 0 24 24"><path d="M12 21v-7M12 14L5 5M12 14l7-9M12 14V3"/><path d="M3 7l2-2 2 2M17 7l2-2 2 2M10 5l2-2 2 2"/></symbol>
+      <symbol id="vv-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol>
+      <symbol id="vv-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
       <symbol id="vv-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
     </defs>
   </svg>
@@ -335,7 +368,7 @@
         <a class="logo" href="#vv"><b>VI</b><span>VICTORY INSTITUTE</span></a>
         <div class="nav-links">
           <a href="#vv-features">Community</a>
-          <a href="#vv-match">AI Career Advisor</a>
+          <a href="#vv-match">AI Victory Coach</a>
           <a href="#vv-features">Job Board</a>
           <a href="#vv-features">Events</a>
           <a href="#vv-stories">Success Stories</a>
@@ -359,14 +392,14 @@
         <h1>Your Experience<br>Has Value.<br><span class="gold">Now Let&rsquo;s Turn It<br>Into Opportunity.</span></h1>
         <p class="lead">Join a private community with AI-powered career guidance, real job opportunities, expert support, and the tools you need to break into and grow in the claims industry.</p>
         <!-- LINK: join -->
-        <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join the Community &mdash; $100 to Get Started <span class="arrow">&rarr;</span></a>
-        <p class="fineprint">Then $47/month &nbsp;|&nbsp; Cancel anytime</p>
+        <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join Victory Village &mdash; $47/month <span class="arrow">&rarr;</span></a>
+        <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Upgrade to Pro whenever you&rsquo;re ready</p>
       </div>
     </div>
 
     <div class="perks">
       <div class="wrap">
-        <div class="perk"><svg class="ico"><use href="#vv-ai"/></svg>AI Career<br>Advisor</div>
+        <div class="perk"><svg class="ico"><use href="#vv-ai"/></svg>AI Victory<br>Coach</div>
         <div class="perk"><svg class="ico"><use href="#vv-brief"/></svg>Job<br>Matches</div>
         <div class="perk"><svg class="ico"><use href="#vv-doc"/></svg>Resume<br>Support</div>
         <div class="perk"><svg class="ico"><use href="#vv-cal"/></svg>Live<br>Events</div>
@@ -418,7 +451,7 @@
         <div class="feature">
           <div class="feature-art photo" style="background-image:url('data:image/jpeg;base64,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')"></div>
           <div class="feature-body">
-            <h3><svg class="ico"><use href="#vv-chat"/></svg>AI Career Advisor</h3>
+            <h3><svg class="ico"><use href="#vv-chat"/></svg>AI Victory Coach</h3>
             <p>Get instant answers, career strategy, job analysis, and personalized guidance based on your experience.</p>
           </div>
         </div>
@@ -458,7 +491,7 @@
           </div>
           <div class="feature-body">
             <h3><svg class="ico"><use href="#vv-doc"/></svg>Resume Revamp</h3>
-            <p>Get AI-powered feedback and templates, plus expert resume reviews (higher tier plans).</p>
+            <p>Get AI-powered feedback and templates, plus in-depth resume &amp; profile analysis with Pro.</p>
           </div>
         </div>
         <div class="feature">
@@ -490,7 +523,7 @@
           </div>
           <div class="feature-body">
             <h3><svg class="ico"><use href="#vv-cal"/></svg>Live Events &amp; Power Hours</h3>
-            <p>Join live trainings, Q&amp;As, resume workshops, mock interviews, and expert sessions.</p>
+            <p>Join live workshops, co-working sessions, Q&amp;As, and expert trainings.</p>
           </div>
         </div>
         <div class="feature">
@@ -582,64 +615,103 @@
       <div class="section-head">
         <div class="eyebrow">Simple Pricing. Real Value.</div>
         <h2>Choose the Support That Fits Your Journey.</h2>
-        <p>Start with our core community and upgrade anytime as your goals grow.</p>
+        <p>Start with Victory Village, go deeper with Pro, and add a 1:1 Strategy Session whenever you need Victoria&rsquo;s eyes on your situation.</p>
       </div>
 
       <div class="plans">
         <div class="plan">
-          <h3>Community Access</h3>
+          <h3>Victory Village</h3>
           <div class="price">$47 <small>/month</small></div>
-          <div class="setup">$100 to get started</div>
+          <div class="setup">&ldquo;Help me navigate my career better.&rdquo;</div>
           <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career assessment &amp; job matches</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>AI Career Advisor (unlimited use)</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Access to job board</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Community forum</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Basic resume templates</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Live event access</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resource library</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Private Victory Village community</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>AI Victory Coach</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career tools &amp; resource library</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job market insights &amp; job matching resources</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Live workshops</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Co-working sessions</li>
           </ul>
-          <!-- LINK: Community Access checkout ($47/month Stripe link) -->
-          <a class="btn" style="margin-top:28px" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join Now &mdash; $100 to Get Started <span class="arrow">&rarr;</span></a>
+          <!-- LINK: Victory Village checkout ($47/month Stripe link) -->
+          <a class="btn" style="margin-top:28px" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join Victory Village <span class="arrow">&rarr;</span></a>
         </div>
 
         <div class="plan popular">
           <span class="badge">MOST POPULAR</span>
-          <h3>Community Plus</h3>
+          <h3>Victory Village Pro</h3>
           <div class="price">$97 <small>/month</small></div>
-          <div class="setup">$100 to get started</div>
-          <p class="includes">Everything in Community Access, plus:</p>
+          <div class="setup">&ldquo;Help me figure out exactly how competitive I am and what I need to improve.&rdquo;</div>
+          <p class="includes">Everything in Victory Village, plus:</p>
           <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Expert resume review (2 per month)</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Priority job alerts</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Monthly resume revamp workshops</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Mock interview sessions (group)</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Live strategy calls with Victoria</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Advanced templates &amp; guides</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Early access to new resources</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Deeper personalized AI career analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resume &amp; profile analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Competency &amp; skill-gap analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job-match improvement recommendations</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Advanced career tools</li>
           </ul>
-          <!-- LINK: Community Plus checkout -->
-          <a class="btn" style="margin-top:28px" href="https://checkout.thevictoryvillage.com">Choose Community Plus <span class="arrow">&rarr;</span></a>
+          <!-- LINK: Victory Village Pro checkout ($97/month) -->
+          <a class="btn" style="margin-top:28px" href="https://checkout.thevictoryvillage.com">Go Pro <span class="arrow">&rarr;</span></a>
         </div>
 
-        <div class="plan">
-          <h3>VIP Coaching</h3>
-          <div class="price">$197 <small>/month</small></div>
-          <div class="setup">$100 to get started</div>
-          <p class="includes">Everything in Community Plus, plus:</p>
+        <div class="plan addon">
+          <span class="badge badge-limited">LIMITED &mdash; 10 PER QUARTER</span>
+          <h3>1:1 Strategy Session</h3>
+          <div class="price">$100 <small>one-time add-on</small></div>
+          <div class="setup">&ldquo;Victoria, look at <em>my</em> situation and tell me what I&rsquo;m missing.&rdquo;</div>
+          <p class="includes">Pick the session you need:</p>
           <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>1:1 resume review (unlimited)</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>1:1 strategy session (monthly)</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Personalized career plan</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Priority support from our team</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Exclusive networking opportunities</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>VIP-only live events</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Advanced job search guidance</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Golden Nugget Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career Lane Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job Placement Strategy Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Positioning Session</li>
           </ul>
-          <!-- LINK: VIP checkout -->
-          <a class="btn" style="margin-top:28px" href="https://checkout.thevictoryvillage.com">Go VIP <span class="arrow">&rarr;</span></a>
+          <a class="more" href="#vv-sessions">See what each session covers &darr;</a>
+          <p class="spots">Only 10 sessions are open each quarter. When they&rsquo;re gone, they&rsquo;re gone.</p>
+          <!-- LINK: Strategy Session checkout ($100 one-time) -->
+          <a class="btn" href="https://checkout.thevictoryvillage.com">Claim a Session <span class="arrow">&rarr;</span></a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= STRATEGY SESSIONS ================= -->
+  <section class="section sessions" id="vv-sessions">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">1:1 Strategy Sessions &middot; $100</div>
+        <h2>Victoria&rsquo;s Proven Framework,<br>Applied to <span class="gold">Your</span> Career.</h2>
+        <p>Each session goes deep on one part of your career, using the same framework behind the Village. Pick the one that matches where you&rsquo;re stuck.</p>
+      </div>
+      <div class="session-grid">
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-sparkle"/></svg></span><h3>Golden Nugget Session</h3></div>
+          <p>Uncover the strongest intersection between your experience, your transferable value and your target career opportunities.</p>
+          <p class="ask">&ldquo;What&rsquo;s the most valuable thing I bring that I&rsquo;m not using?&rdquo;</p>
+          <!-- LINK: book the Golden Nugget Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-lanes"/></svg></span><h3>Career Lane Session</h3></div>
+          <p>Determine the 2&ndash;3 career lanes you should actually be targeting, instead of applying randomly.</p>
+          <p class="ask">&ldquo;Where should I focus so my applications actually land?&rdquo;</p>
+          <!-- LINK: book the Career Lane Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-target"/></svg></span><h3>Job Placement Strategy Session</h3></div>
+          <p>Analyze why you&rsquo;re not getting interviews or offers, and identify exactly what needs to change.</p>
+          <p class="ask">&ldquo;Why am I not hearing back, and what do I fix first?&rdquo;</p>
+          <!-- LINK: book the Job Placement Strategy Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-compass"/></svg></span><h3>Positioning Session</h3></div>
+          <p>Compare your resume and background against where you&rsquo;re trying to go, and identify the positioning gaps.</p>
+          <p class="ask">&ldquo;How do I look like the right fit for the role I want?&rdquo;</p>
+          <!-- LINK: book the Positioning Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <p class="session-note"><svg class="ico"><use href="#vv-cal"/></svg>Add-on for Victory Village and Pro members &nbsp;&middot;&nbsp; <b>Only 10 sessions each quarter</b></p>
     </div>
   </section>
 
@@ -664,21 +736,21 @@
             <div class="video"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
             <div class="story-body">
               <blockquote>&ldquo;The AI showed me roles I didn&rsquo;t even know I qualified for. I went from feeling stuck to getting interviews.&rdquo;</blockquote>
-              <div class="who"><span class="avatar">M</span><div><b>Marcus T.</b><span>Community Member</span></div></div>
+              <div class="who"><span class="avatar">M</span><div><b>Marcus T.</b><span>Victory Village Member</span></div></div>
             </div>
           </article>
           <article class="story">
             <div class="video"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
             <div class="story-body">
               <blockquote>&ldquo;The resume revamp and mock interview session gave me the confidence I needed. I landed a role within 6 weeks.&rdquo;</blockquote>
-              <div class="who"><span class="avatar">J</span><div><b>Jasmine R.</b><span>Community Plus Member</span></div></div>
+              <div class="who"><span class="avatar">J</span><div><b>Jasmine R.</b><span>Victory Village Pro Member</span></div></div>
             </div>
           </article>
           <article class="story">
             <div class="video"><span class="play"><svg viewBox="0 0 24 24"><path d="M6 4l14 8-14 8z"/></svg></span></div>
             <div class="story-body">
               <blockquote>&ldquo;The community, the resources, and Victoria&rsquo;s guidance made all the difference. I finally feel like I&rsquo;m on the right path.&rdquo;</blockquote>
-              <div class="who"><span class="avatar">T</span><div><b>Tierra L.</b><span>VIP Member</span></div></div>
+              <div class="who"><span class="avatar">T</span><div><b>Tierra L.</b><span>Strategy Session Client</span></div></div>
             </div>
           </article>
         </div>
@@ -694,8 +766,8 @@
       <h2>Your Next Opportunity<br>Starts Here.</h2>
       <p>Join a community that helps you see your value, close your gaps, and get hired &mdash; with the power of AI and real human support.</p>
       <!-- LINK: join -->
-      <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join Now &mdash; $100 to Get Started <span class="arrow">&rarr;</span></a>
-      <p class="fineprint">Then $47/month &nbsp;|&nbsp; Cancel anytime</p>
+      <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Join Victory Village &mdash; $47/month <span class="arrow">&rarr;</span></a>
+      <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Upgrade to Pro whenever you&rsquo;re ready</p>
     </div>
   </section>
 

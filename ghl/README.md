@@ -26,11 +26,14 @@ Your hero photo and Career Match photo are **built into the page**, so they show
 ## Glowing buttons
 The gold buttons glow gently and a light sweeps across them every few seconds. To tone the glow down, lower the numbers inside `@keyframes vv-glow`. To remove the light sweep, delete the `#vv .btn::after` rule. Visitors whose device is set to reduce motion see a still glow with no animation.
 
-## Links
-Search the file for `LINK:`.
-- **Community Access ($47/month):** the menu's **Join the Community** button, the hero button, the plan's **Join Now** button and the bottom **Join Now** button all go to the Stripe link `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01`.
-- **Community Plus**, **VIP Coaching** and **Try the Career Assessment** still go to `https://checkout.thevictoryvillage.com` until their links are added.
-- **Log In** goes to `https://portal.thevictoryvillage.com`.
+## Offers and links
+| Offer | Price | Button link |
+|---|---|---|
+| Victory Village | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (menu, hero, pricing card, closing section) |
+| Victory Village Pro | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
+| 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | placeholder `https://checkout.thevictoryvillage.com` (pricing card and the four "Book this session" links) |
+
+The four session types (Golden Nugget, Career Lane, Job Placement Strategy, Positioning) are listed on the Strategy Session card and explained in the section right below pricing. Each has its own "Book this session" link, so you can give each one its own checkout or calendar link. Search the file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
