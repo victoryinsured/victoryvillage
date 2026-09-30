@@ -29,11 +29,11 @@ The gold buttons glow gently and a light sweeps across them every few seconds. T
 ## Offers and links
 | Offer | Price | Button link |
 |---|---|---|
-| Victory Village | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (menu, hero, pricing card, closing section) |
-| Victory Village Pro | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
+| Victory Toolkit (job-hunting tools only) | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (hero, pricing card, closing section) |
+| Victory Village Pro (Toolkit + community, workshops, co-working, deeper analysis) | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
 | 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | placeholder `https://checkout.thevictoryvillage.com` (pricing card and the four "Book this session" links) |
 
-The four session types (Golden Nugget, Career Lane, Job Placement Strategy, Positioning) are listed on the Strategy Session card and explained in the section right below pricing. Each has its own "Book this session" link, so you can give each one its own checkout or calendar link. Search the file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
+The four session types (Golden Nugget, Career Lane, Job Placement Strategy, Positioning) are listed on the Strategy Session card and explained in the section right below pricing. Each has its own "Book this session" link, so you can give each one its own checkout or calendar link. The **Get Started** button in the top menu jumps down to the plans. Search the file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
