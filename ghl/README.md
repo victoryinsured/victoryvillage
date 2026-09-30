@@ -27,7 +27,10 @@ Your hero photo and Career Match photo are **built into the page**, so they show
 The gold buttons glow gently and a light sweeps across them every few seconds. To tone the glow down, lower the numbers inside `@keyframes vv-glow`. To remove the light sweep, delete the `#vv .btn::after` rule. Visitors whose device is set to reduce motion see a still glow with no animation.
 
 ## Links
-Search the file for `LINK:`. Every "Join" and pricing button currently goes to `https://checkout.thevictoryvillage.com`, and **Log In** goes to `https://portal.thevictoryvillage.com`. Replace each one with the checkout URL for its plan.
+Search the file for `LINK:`.
+- **Community Access ($47/month):** the menu's **Join the Community** button, the hero button, the plan's **Join Now** button and the bottom **Join Now** button all go to the Stripe link `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01`.
+- **Community Plus**, **VIP Coaching** and **Try the Career Assessment** still go to `https://checkout.thevictoryvillage.com` until their links are added.
+- **Log In** goes to `https://portal.thevictoryvillage.com`.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
