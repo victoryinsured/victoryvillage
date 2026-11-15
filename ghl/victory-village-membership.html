@@ -451,6 +451,70 @@
   }
 </style>
 
+<style>
+  /* ======================================================================
+     LIGHT SECTIONS: everything below the hero is light (ivory / white with
+     dark text and gold accents). The hero and the footer stay dark.
+     Any section with class="light" uses these colors.
+     ====================================================================== */
+  #vv .light {
+    --bg: #faf7f1; --bg-2: #f3ece1; --card: #ffffff;
+    --text: #1d1611; --muted: #66594a;
+    --gold: #b07a22; --gold-soft: rgba(176, 122, 34, .38);
+    --line: rgba(150, 108, 40, .22);
+    background-color: var(--bg); color: var(--text);
+  }
+  #vv .light .section-head p, #vv .light .fineprint { color: var(--muted); }
+  #vv .light .btn-outline { color: var(--text); border-color: var(--gold); background: transparent; }
+  #vv .light .btn-outline:hover { background: rgba(176,122,34,.08); }
+  #vv .light .btn { box-shadow: 0 6px 18px rgba(176,122,34,.28), inset 0 1px 0 rgba(255,255,255,.6); animation: none; }
+  #vv .light .btn:hover { box-shadow: 0 10px 26px rgba(176,122,34,.38), inset 0 1px 0 rgba(255,255,255,.7); }
+  /* cards: white with a soft shadow instead of dark gradients */
+  #vv .light .feature, #vv .light .session, #vv .light .step, #vv .light .plan, #vv .light .band-plan, #vv .light .story {
+    background: var(--card); box-shadow: 0 1px 2px rgba(60,40,10,.05), 0 10px 30px rgba(60,40,10,.07);
+  }
+  #vv .light .feature-art::after { display: none; }
+  #vv .light .feature p, #vv .light .session p, #vv .light .step p, #vv .light .band-plan p { color: var(--muted); }
+  /* career match */
+  #vv .light.match { background: var(--bg-2); }
+  #vv .light .match-copy p { color: var(--muted); }
+  /* pricing */
+  #vv .light.pricing, #vv .light.m-band { background: radial-gradient(ellipse at 50% 0%, rgba(217,164,65,.14), transparent 60%), var(--bg); }
+  #vv .light .plan .checks li { color: var(--text); }
+  #vv .light .plan .setup { color: #3d3024; }
+  #vv .light .plan.popular { box-shadow: 0 0 0 1px var(--gold), 0 18px 50px rgba(176,122,34,.18); }
+  #vv .light .plan.addon { background: linear-gradient(180deg, #fbf1ef, #ffffff 45%); border-color: rgba(64,6,6,.35); box-shadow: 0 18px 50px rgba(64,6,6,.10); }
+  #vv .light .badge-limited { color: #f2c46b; }
+  #vv .light .plan .spots { color: var(--burgundy); border-color: rgba(64,6,6,.3); }
+  #vv .light .plan .more, #vv .light .session-link, #vv .light .step p a { color: var(--gold); }
+  #vv .light .session-link:hover { color: #8a5d14; }
+  /* strategy sessions */
+  #vv .light.sessions { background: var(--bg-2); }
+  #vv .light .session p.ask { color: #3d3024; }
+  #vv .light .session-note b { color: var(--burgundy); }
+  /* testimonials */
+  #vv .light.testi { background: var(--bg-2); }
+  #vv .light .story blockquote { color: #3d3024; }
+  #vv .light .car-btn { background: #fff; box-shadow: 0 4px 14px rgba(60,40,10,.12); }
+  /* compare table */
+  #vv .light.compare { background: var(--bg-2); }
+  #vv .light .table-wrap { box-shadow: 0 10px 30px rgba(60,40,10,.07); }
+  #vv .light table.cmp td:first-child, #vv .light table.cmp th:first-child { color: var(--text); }
+  #vv .light table.cmp thead th { background: #f6efe3; }
+  #vv .light table.cmp thead th small { color: var(--gold); }
+  #vv .light table.cmp thead th.hl { background: #f3e3c2; }
+  #vv .light table.cmp td.hl { background: rgba(217,164,65,.07); }
+  #vv .light table.cmp .yes { color: var(--gold); }
+  #vv .light table.cmp .no { color: rgba(102,89,74,.45); }
+  /* FAQ */
+  #vv .light .m-faq details { box-shadow: 0 1px 2px rgba(60,40,10,.04); }
+  #vv .light .m-faq .ans a { color: var(--gold); }
+  /* closing call to action */
+  #vv .light.final { background: radial-gradient(ellipse at 50% 30%, rgba(217,164,65,.18), transparent 60%), var(--bg-2); }
+  #vv .light.final p { color: var(--muted); }
+  #vv .light .divider, #vv .light.divider { border-color: var(--line); }
+</style>
+
 <div id="vv">
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
@@ -524,7 +588,7 @@
   </header>
 
   <!-- ================= HOW IT WORKS ================= -->
-  <section class="section" id="vv-how">
+  <section class="light section" id="vv-how">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">How It Works</div>
@@ -552,7 +616,7 @@
   </section>
 
   <!-- ================= PRICING ================= -->
-  <section class="section pricing divider" id="vv-pricing">
+  <section class="light section pricing divider" id="vv-pricing">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Membership Plans</div>
@@ -618,7 +682,7 @@
   </section>
 
   <!-- ================= STRATEGY SESSIONS ================= -->
-  <section class="section sessions" id="vv-sessions">
+  <section class="light section sessions" id="vv-sessions">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">1:1 Strategy Sessions &middot; $100</div>
@@ -660,7 +724,7 @@
   </section>
 
   <!-- ================= COMPARE ================= -->
-  <section class="section compare" id="vv-compare">
+  <section class="light section compare" id="vv-compare">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Compare Plans</div>
@@ -692,7 +756,7 @@
   </section>
 
   <!-- ================= FAQ ================= -->
-  <section class="section" id="vv-faq">
+  <section class="light section" id="vv-faq">
     <div class="wrap">
       <div class="section-head">
         <div class="eyebrow">Membership Questions</div>
@@ -734,7 +798,7 @@
   </section>
 
   <!-- ================= FINAL CTA ================= -->
-  <section class="final">
+  <section class="light final">
     <div class="wrap">
       <div class="logo"><b>VI</b><span>VICTORY INSTITUTE</span></div>
       <h2>Your Next Opportunity<br>Starts Here.</h2>

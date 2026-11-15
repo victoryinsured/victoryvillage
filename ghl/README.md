@@ -10,6 +10,9 @@ The pages link to each other through `https://thevictoryvillage.com/membership` 
 
 `victory-village-home.html` is the whole page in one file: styles, content and a little script.
 
+## Light sections
+Below the hero, every page is light: ivory and white backgrounds, dark text and gold accents. The heroes and the footer stay dark so the photos and the career web pop. The light colors live in the `LIGHT SECTIONS` style block near the top of each file; any section with `class="light"` uses them.
+
 ## Add it to GoHighLevel
 1. Go to **Sites → Websites (or Funnels) →** your page → **Edit**.
 2. Add a new **Section** and set it to **Full Width**. Set its padding and margin to 0 and its background to none. Do the same for its row and column.
