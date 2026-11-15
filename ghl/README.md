@@ -17,10 +17,15 @@ Both pages link to each other: the home page menu and footer have a **Support** 
 5. In **Settings → SEO / Page settings**, set the page background to `#0b0907` so no white strip shows at the edges.
 6. Preview on desktop and mobile, then publish.
 
-## Hero career web
-The hero has no photo. It's an animated gold web that grows out from **Your Experience** into claims roles, then into more roles. Small lights travel along the connections, and every few seconds one career path lights up from the center to an outer role. On phones, only the lit-up path is labelled so the roles don't crowd each other. Visitors whose device is set to reduce motion see the finished web without movement.
+## Hero career web (interactive)
+The hero is an animated gold web with a row of tabs above it: **Where are you coming from?** Banker, Nurse, Customer Service, Warehouse Worker, Government Worker.
+- Clicking a tab regrows the web from that job. It goes out to the **skills they already have** (hollow rings), then the **claims roles those skills fit** (bright gold dots), then **where those roles can lead** (small dots). A legend under the web explains the three kinds.
+- Hovering over (or tapping) any role lights up its path back to the center. Every few seconds a path also lights up on its own.
+- Until a visitor clicks something, the web cycles through all five backgrounds by itself.
+- On phones the tabs scroll sideways, and only the center and the lit path are labelled.
+- Screen readers get a text version of the selected web. Visitors whose device is set to reduce motion see each finished web without animation.
 
-To change the roles, edit the `RINGS` lists in the `<script>` at the bottom of `victory-village-home.html`: the first list is the center, then each list is the next ring out.
+To change a background or its roles, edit `WEBS` in the `<script>` at the bottom of `victory-village-home.html`: `skills` is the first ring, `roles` the second, `grow` the outer ring. To add a background, add an entry to `WEBS`, add its key to `ORDER`, and add a matching `<button class="web-tab" data-bg="...">` in the hero.
 
 ## Images
 Your Career Match photo is **built into the page**, so it shows up as soon as you paste it. You don't need Drive links or sharing settings.
