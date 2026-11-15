@@ -17,10 +17,15 @@ Both pages link to each other: the home page menu and footer have a **Support** 
 5. In **Settings → SEO / Page settings**, set the page background to `#0b0907` so no white strip shows at the edges.
 6. Preview on desktop and mobile, then publish.
 
+## Hero career web
+The hero has no photo. It's an animated gold web that grows out from **Your Experience** into claims roles, then into more roles. Small lights travel along the connections, and every few seconds one career path lights up from the center to an outer role. On phones, only the lit-up path is labelled so the roles don't crowd each other. Visitors whose device is set to reduce motion see the finished web without movement.
+
+To change the roles, edit the `RINGS` lists in the `<script>` at the bottom of `victory-village-home.html`: the first list is the center, then each list is the next ring out.
+
 ## Images
-Your hero photo and Career Match photo are **built into the page**, so they show up as soon as you paste it. You don't need Drive links or sharing settings.
-- Compressed copies are in `images/` if you ever want them in your GHL Media Library. To use a Media Library link instead, find `--hero-img` or `--match-img` at the bottom of the `<style>` block and replace everything inside `url('...')` with your link.
-- **Feature cards:** AI Career Advisor, Job Board and Expert Guidance use close-up crops of your two photos (copies are in `images/card-*.jpg`). The other five cards (Resume Revamp, Live Events, Community Access, Resource Library, Ongoing Support) use built-in gold illustrations. To use your own photo on any card, follow the `IMAGE:` note above the cards in the file.
+Your Career Match photo is **built into the page**, so it shows up as soon as you paste it. You don't need Drive links or sharing settings.
+- Compressed copies of your photos are in `images/` if you ever want them in your GHL Media Library. To use a Media Library link instead, find `--match-img` at the bottom of the `<style>` block and replace everything inside `url('...')` with your link.
+- **Feature cards:** AI Victory Coach, Job Board and Expert Guidance use close-up crops of your two photos (copies are in `images/card-*.jpg`). The other five cards (Resume Revamp, Live Events, Community Access, Resource Library, Ongoing Support) use built-in gold illustrations. To use your own photo on any card, follow the `IMAGE:` note above the cards in the file.
 - Search the file for `IMAGE:` to see where you can add testimonial videos and headshots.
 
 ## Glowing buttons
