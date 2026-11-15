@@ -50,7 +50,7 @@ The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on 
 Search each file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
 
 ## Membership page
-Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero with the gold Victory Society seal (a VS crest inside a slowly turning ring of text, with light rays and sparkles; it tilts slightly with the mouse on desktop), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
+Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero with your Victory Society lounge photo (the sign shows on the left, the headline sits on the darker right side; on phones the photo sits above the headline; to swap it, find `--society-img` at the bottom of the `<style>` block), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
