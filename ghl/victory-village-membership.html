@@ -1,0 +1,832 @@
+<!--
+  VICTORY VILLAGE — Membership Page (Victory Toolkit, Victory Village Pro, 1:1 Strategy Sessions)
+  Paste this whole file into a GoHighLevel "Custom JS/HTML" element on your membership page
+  (full-width section, 0 padding, page background #0b0907 — same setup as the other pages).
+  Suggested page path: /membership
+
+  LINKS: search for "LINK:" to change button destinations.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  #vv {
+    --gold: #d9a441;
+    --gold-light: #f2c46b;
+    --gold-soft: rgba(217, 164, 65, .35);
+    --burgundy: #400606;
+    --bg: #0b0907;
+    --bg-2: #120e0a;
+    --card: #17120d;
+    --line: rgba(217, 164, 65, .22);
+    --text: #f4ede2;
+    --muted: #b9ad9c;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+    /* IMAGE: the career match photo is at the very bottom of this style block.
+       The hero has no photo: it is the animated career web (script at the bottom of the file). */
+
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  #vv *, #vv *::before, #vv *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  #vv a { color: inherit; text-decoration: none; }
+  #vv img { max-width: 100%; display: block; }
+  #vv .wrap { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- Shared ---------- */
+  #vv .eyebrow {
+    font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  #vv h1, #vv h2, #vv h3 { font-family: var(--serif); font-weight: 600; line-height: 1.08; color: var(--text); }
+  #vv h2 { font-size: clamp(32px, 4.2vw, 50px); }
+  #vv .gold { color: var(--gold); }
+  #vv .btn {
+    position: relative; overflow: hidden; isolation: isolate;
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    background: linear-gradient(180deg, #ffe3a3 0%, var(--gold-light) 35%, var(--gold) 100%);
+    color: #1a1208; font-weight: 600; font-size: 15px;
+    padding: 15px 30px; border-radius: 4px; border: 1px solid #ffd98a; cursor: pointer;
+    box-shadow:
+      0 0 14px rgba(255, 205, 110, .55),
+      0 0 34px rgba(217, 164, 65, .45),
+      0 0 70px rgba(217, 164, 65, .22),
+      inset 0 1px 0 rgba(255, 255, 255, .6);
+    animation: vv-glow 2.8s ease-in-out infinite;
+    transition: transform .2s, box-shadow .2s;
+  }
+  /* light sweep across the button */
+  #vv .btn::after {
+    content: ""; position: absolute; top: 0; bottom: 0; left: -60%; width: 40%; z-index: -1;
+    background: linear-gradient(100deg, transparent, rgba(255, 255, 255, .55), transparent);
+    transform: skewX(-20deg); animation: vv-shine 4.5s ease-in-out infinite;
+  }
+  #vv .btn:hover {
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 20px rgba(255, 215, 130, .8),
+      0 0 48px rgba(217, 164, 65, .6),
+      0 0 96px rgba(217, 164, 65, .3),
+      inset 0 1px 0 rgba(255, 255, 255, .7);
+  }
+  @keyframes vv-glow {
+    0%, 100% { box-shadow: 0 0 12px rgba(255, 205, 110, .45), 0 0 30px rgba(217, 164, 65, .35), 0 0 60px rgba(217, 164, 65, .15), inset 0 1px 0 rgba(255, 255, 255, .6); }
+    50%      { box-shadow: 0 0 18px rgba(255, 215, 130, .75), 0 0 44px rgba(217, 164, 65, .55), 0 0 90px rgba(217, 164, 65, .28), inset 0 1px 0 rgba(255, 255, 255, .6); }
+  }
+  @keyframes vv-shine { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+  @media (prefers-reduced-motion: reduce) { #vv .btn, #vv .btn::after { animation: none; } }
+  #vv .btn-outline {
+    background: transparent; color: var(--text); box-shadow: none;
+    border: 1px solid var(--gold-soft); animation: none;
+  }
+  #vv .btn-outline::after { display: none; }
+  #vv .btn-outline:hover { border-color: var(--gold); box-shadow: none; }
+  #vv .arrow { font-size: 18px; line-height: 1; }
+  #vv .fineprint { font-size: 13px; color: var(--muted); margin-top: 12px; }
+  #vv .section { padding: 96px 0; position: relative; }
+  #vv .section-head { text-align: center; max-width: 760px; margin: 0 auto 56px; }
+  #vv .section-head h2 { margin: 14px 0 14px; }
+  #vv .section-head p { color: var(--muted); }
+  #vv .divider { border-top: 1px solid var(--line); }
+  #vv svg.ico { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+
+  /* ---------- Nav ---------- */
+  #vv .nav {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+    padding: 22px 0;
+  }
+  #vv .nav .wrap { display: flex; align-items: center; gap: 36px; }
+  #vv .logo { display: flex; flex-direction: column; align-items: center; line-height: 1; }
+  #vv .logo b { font-family: var(--serif); font-size: 34px; color: var(--gold); font-weight: 600; letter-spacing: .02em; }
+  #vv .logo span { font-size: 8px; letter-spacing: .3em; color: var(--gold); margin-top: 4px; }
+  #vv .nav-links { display: flex; gap: 28px; font-size: 14px; color: #e6dccd; }
+  #vv .nav-links a:hover { color: var(--gold); }
+  #vv .nav-cta { margin-left: auto; display: flex; gap: 12px; align-items: center; }
+  #vv .nav-cta .btn { padding: 10px 18px; font-size: 13px; }
+  #vv .menu-btn { display: none; margin-left: auto; background: none; border: 1px solid var(--gold-soft); color: var(--gold); border-radius: 4px; padding: 8px 12px; font-size: 18px; cursor: pointer; }
+
+  /* ---------- Hero ---------- */
+  #vv .hero {
+    position: relative; min-height: 780px; display: flex; flex-direction: column; justify-content: flex-end;
+    background:
+      radial-gradient(circle at 68% 44%, rgba(217,164,65,.13), transparent 42%),
+      radial-gradient(ellipse at 85% 15%, rgba(64,6,6,.7), transparent 50%),
+      radial-gradient(ellipse at 60% 90%, rgba(64,6,6,.45), transparent 55%),
+      var(--bg);
+    overflow: hidden;
+  }
+  /* animated career web (drawn by the script at the bottom of this file) */
+  #vv .hero #vv-web { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+  /* career web tabs + legend */
+  #vv .web-ui { position: absolute; z-index: 3; top: 104px; left: 46%; right: clamp(16px, 4vw, 64px); text-align: center; }
+  #vv .web-ui .web-q { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
+  #vv .web-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  #vv .web-tab {
+    font: 500 13.5px var(--sans); color: #e9dfcf; background: rgba(11,9,7,.65); cursor: pointer;
+    border: 1px solid var(--gold-soft); border-radius: 999px; padding: 8px 16px; white-space: nowrap;
+    transition: border-color .2s, background .2s, color .2s, box-shadow .2s;
+  }
+  #vv .web-tab:hover { border-color: var(--gold); color: #fff; }
+  #vv .web-tab:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+  #vv .web-tab[aria-pressed="true"] {
+    background: linear-gradient(180deg, #ffe3a3, var(--gold)); color: #1a1208; border-color: #ffd98a; font-weight: 600;
+    box-shadow: 0 0 18px rgba(255,205,110,.45);
+  }
+  #vv .web-legend {
+    position: absolute; z-index: 3; left: 46%; right: clamp(16px, 4vw, 64px); bottom: 116px;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 12.5px; color: var(--muted); pointer-events: none;
+  }
+  #vv .web-legend span { display: inline-flex; align-items: center; gap: 8px; }
+  #vv .web-legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+  #vv .web-legend .lg-skill { border: 1.5px solid var(--gold-light); }
+  #vv .web-legend .lg-role { background: var(--gold); box-shadow: 0 0 8px rgba(242,196,107,.7); }
+  #vv .web-legend .lg-grow { background: #8a6a2e; width: 8px; height: 8px; }
+  #vv .web-hint { font-size: 12px; color: var(--muted); margin-top: 10px; }
+  #vv .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  #vv .hero::before {
+    content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background:
+      linear-gradient(90deg, rgba(11,9,7,.9) 0%, rgba(11,9,7,.6) 30%, rgba(11,9,7,0) 55%),
+      linear-gradient(0deg, rgba(11,9,7,.9) 0%, rgba(11,9,7,0) 22%);
+  }
+  #vv .hero .hero-inner { position: relative; z-index: 2; padding-top: 150px; width: 100%; }
+  /* hero, nav and perk row stretch full width so the headline sits at the far left */
+  #vv .hero .perks { z-index: 2; }
+  #vv .hero .wrap { max-width: none; padding-left: clamp(16px, 4vw, 64px); padding-right: clamp(16px, 4vw, 64px); }
+  #vv .hero-copy { max-width: 620px; }
+  #vv .hero h1 { font-size: clamp(42px, 5.6vw, 70px); margin: 18px 0 22px; }
+  #vv .hero p.lead { font-size: 17px; color: #e3d9ca; max-width: 500px; margin-bottom: 30px; }
+  #vv .perks {
+    position: relative; z-index: 2; margin-top: 64px; padding: 26px 0 34px;
+    border-top: 1px solid var(--line);
+  }
+  #vv .perks .wrap { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  #vv .perk { display: flex; align-items: center; gap: 12px; font-size: 13px; line-height: 1.35; color: #e6dccd; }
+  #vv .perk svg.ico { width: 28px; height: 28px; }
+
+  /* ---------- Career match ---------- */
+  #vv .match { padding: 0; background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  #vv .match-grid { display: grid; grid-template-columns: 1.3fr 1fr; align-items: stretch; }
+  #vv .match-img {
+    aspect-ratio: 16 / 9; align-self: center; margin-left: 24px;
+    background: var(--match-img) center / cover no-repeat;
+    -webkit-mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent), linear-gradient(to right, transparent, #000 6%, #000 86%, transparent);
+    -webkit-mask-composite: source-in;
+    mask-image: linear-gradient(to bottom, transparent, #000 10%, #000 90%, transparent), linear-gradient(to right, transparent, #000 6%, #000 86%, transparent);
+    mask-composite: intersect;
+  }
+  #vv .match-copy { padding: 80px 56px 80px 48px; display: flex; flex-direction: column; justify-content: center; }
+  #vv .match-copy h2 { margin: 14px 0 20px; }
+  #vv .match-copy p { color: var(--muted); margin-bottom: 22px; max-width: 480px; }
+  #vv .checks { list-style: none; display: grid; gap: 12px; margin-bottom: 30px; }
+  #vv .checks li { display: flex; gap: 12px; align-items: flex-start; font-size: 15px; }
+  #vv .check {
+    flex: none; width: 20px; height: 20px; border-radius: 50%; margin-top: 2px;
+    background: var(--gold); display: grid; place-items: center;
+  }
+  #vv .check svg { width: 11px; height: 11px; stroke: #1a1208; stroke-width: 3; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ---------- Features ---------- */
+  #vv .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  #vv .feature {
+    background: linear-gradient(180deg, #1b150f, var(--card));
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+    transition: transform .25s, border-color .25s;
+  }
+  #vv .feature:hover { transform: translateY(-4px); border-color: var(--gold-soft); }
+  #vv .feature-art {
+    height: 160px; position: relative; overflow: hidden;
+    background: #100c08 center / cover no-repeat;
+    border-bottom: 1px solid var(--line);
+  }
+  #vv .feature-art svg.art { width: 100%; height: 100%; display: block; }
+  #vv .feature-art::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: linear-gradient(180deg, rgba(11,9,7,0) 55%, rgba(23,18,13,.85) 100%);
+  }
+  #vv .feature:hover .feature-art.photo { transform: scale(1.02); }
+  #vv .feature-art.photo { transition: transform .4s; }
+  #vv .feature-body { padding: 22px 22px 26px; }
+  #vv .feature h3 { font-size: 22px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  #vv .feature p { font-size: 14px; color: var(--muted); }
+
+  /* ---------- Pricing ---------- */
+  #vv .pricing { background: radial-gradient(ellipse at 50% 0%, rgba(64,6,6,.45), transparent 60%), var(--bg); }
+  #vv .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: stretch; }
+  #vv .plan {
+    position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    padding: 36px 30px 32px; display: flex; flex-direction: column;
+  }
+  #vv .plan.popular { border: 1.5px solid var(--gold); box-shadow: 0 0 60px rgba(217,164,65,.14); transform: translateY(-10px); }
+  #vv .badge {
+    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #1a1208; font-size: 11px; font-weight: 700; letter-spacing: .18em;
+    padding: 5px 14px; border-radius: 3px; white-space: nowrap;
+  }
+  #vv .plan h3 { font-size: 26px; }
+  #vv .price { font-family: var(--serif); font-size: 52px; color: var(--gold); font-weight: 600; line-height: 1; margin: 14px 0 6px; }
+  #vv .price small { font-size: 20px; color: var(--muted); font-weight: 500; }
+  #vv .setup { font-size: 14px; color: var(--muted); padding-bottom: 20px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+  #vv .plan .includes { font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+  #vv .plan .checks { gap: 10px; flex: 1; align-content: start; }
+  #vv .plan .checks li { font-size: 14px; color: #e3d9ca; }
+  #vv .plan .btn { width: 100%; padding: 15px 10px; font-size: 13.5px; white-space: nowrap; }
+  #vv .plan .setup { font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.35; color: #e3d9ca; min-height: 70px; }
+  #vv .plan.addon {
+    border: 1.5px solid rgba(217,164,65,.55);
+    background: radial-gradient(ellipse at 50% 0%, rgba(64,6,6,.85), transparent 70%), var(--card);
+    box-shadow: 0 0 50px rgba(64,6,6,.55);
+  }
+  #vv .badge-limited { background: var(--burgundy); color: var(--gold-light); border: 1px solid var(--gold); }
+  #vv .plan .spots { font-size: 13px; color: var(--gold-light); margin: 22px 0 14px; padding: 10px 12px; border: 1px dashed var(--gold-soft); border-radius: 4px; text-align: center; }
+  #vv .price small { white-space: nowrap; }
+
+  #vv .pro-tag { font-family: var(--sans); font-size: 10px; font-weight: 700; letter-spacing: .12em; color: #1a1208; background: var(--gold); padding: 2px 7px; border-radius: 3px; margin-left: 2px; }
+
+  /* ---------- Strategy sessions ---------- */
+  #vv .plan .more { display: block; font-size: 13px; color: var(--gold-light); margin-top: 14px; text-decoration: underline; text-underline-offset: 3px; }
+  #vv .sessions { background: radial-gradient(ellipse at 50% 100%, rgba(64,6,6,.5), transparent 60%), var(--bg-2); border-top: 1px solid var(--line); }
+  #vv .session-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  #vv .session {
+    background: linear-gradient(180deg, #1b150f, var(--card)); border: 1px solid var(--line); border-radius: 8px;
+    padding: 26px 22px 22px; display: flex; flex-direction: column; transition: transform .25s, border-color .25s, box-shadow .25s;
+  }
+  #vv .session:hover { transform: translateY(-4px); border-color: var(--gold); box-shadow: 0 0 34px rgba(217,164,65,.16); }
+  #vv .session-top { display: flex; flex-direction: column; gap: 14px; margin-bottom: 12px; }
+  #vv .session-ico { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--burgundy); border: 1px solid var(--gold); box-shadow: 0 0 20px rgba(217,164,65,.25); }
+  #vv .session-ico svg.ico { width: 26px; height: 26px; }
+  #vv .session h3 { font-size: 24px; }
+  #vv .session p { font-size: 14px; color: var(--muted); }
+  #vv .session p.ask { font-family: var(--serif); font-style: italic; font-size: 17px; color: #e3d9ca; margin: 14px 0 18px; flex: 1; }
+  #vv .session-link { font-size: 14px; font-weight: 600; color: var(--gold-light); display: inline-flex; gap: 8px; align-items: center; }
+  #vv .session-link:hover { color: #ffe3a3; }
+  #vv .session-note { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 34px; font-size: 14px; color: var(--muted); text-align: center; }
+  #vv .session-note b { color: var(--gold-light); }
+
+  /* ---------- Testimonials ---------- */
+  #vv .testi { background: var(--bg-2); border-top: 1px solid var(--line); }
+  #vv .carousel { position: relative; }
+  #vv .track {
+    display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 44px) / 3); gap: 22px;
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none;
+  }
+  #vv .track::-webkit-scrollbar { display: none; }
+  #vv .story { scroll-snap-align: start; background: var(--card); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+  #vv .video {
+    aspect-ratio: 16 / 10; position: relative; display: grid; place-items: center;
+    background: radial-gradient(circle at 50% 40%, rgba(217,164,65,.22), transparent 60%), linear-gradient(135deg, #2a1a10, #0e0a07);
+    background-size: cover; background-position: center;
+  }
+  #vv .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  #vv .play {
+    width: 64px; height: 64px; border-radius: 50%; border: 2px solid var(--gold);
+    background: rgba(11,9,7,.55); display: grid; place-items: center;
+  }
+  #vv .play svg { width: 22px; height: 22px; fill: var(--gold); margin-left: 4px; }
+  #vv .story-body { padding: 24px; }
+  #vv .story blockquote { font-size: 15px; color: #e3d9ca; margin-bottom: 20px; }
+  #vv .who { display: flex; gap: 12px; align-items: center; }
+  #vv .avatar {
+    width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; flex: none;
+    background: var(--burgundy); border: 1px solid var(--gold); color: var(--gold);
+    font-family: var(--serif); font-size: 18px; font-weight: 700;
+    background-size: cover; background-position: center;
+  }
+  #vv .who b { display: block; font-size: 14px; }
+  #vv .who span { font-size: 12px; color: var(--muted); }
+  #vv .car-btn {
+    position: absolute; top: 34%; transform: translateY(-50%); z-index: 3;
+    width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--gold-soft);
+    background: rgba(11,9,7,.85); color: var(--gold); font-size: 20px; cursor: pointer;
+  }
+  #vv .car-btn:hover { border-color: var(--gold); }
+  #vv .car-prev { left: -58px; }
+  #vv .car-next { right: -58px; }
+
+  /* ---------- Final CTA ---------- */
+  #vv .final {
+    padding: 110px 0; text-align: center;
+    background:
+      radial-gradient(ellipse at 50% 50%, rgba(217,164,65,.12), transparent 60%),
+      radial-gradient(ellipse at 10% 100%, rgba(64,6,6,.6), transparent 55%),
+      var(--bg);
+    border-top: 1px solid var(--line);
+  }
+  #vv .final h2 { font-size: clamp(36px, 4.6vw, 56px); margin-bottom: 18px; }
+  #vv .final p { color: var(--muted); max-width: 560px; margin: 0 auto 32px; }
+  #vv .final .logo { margin-bottom: 26px; }
+  #vv .final .logo b { font-size: 56px; }
+  #vv .final .logo span { font-size: 10px; }
+
+  /* ---------- Footer ---------- */
+  #vv .footer { padding: 32px 0; border-top: 1px solid var(--line); font-size: 13px; color: var(--muted); }
+  #vv .footer .wrap { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; align-items: center; }
+  #vv .footer nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+  #vv .footer a:hover { color: var(--gold); }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1100px) {
+    #vv .perks .wrap { grid-template-columns: repeat(3, 1fr); row-gap: 22px; }
+    #vv .features-grid, #vv .session-grid { grid-template-columns: repeat(2, 1fr); }
+    #vv .car-prev { left: -8px; } #vv .car-next { right: -8px; }
+  }
+  @media (max-width: 900px) {
+    #vv .nav-links, #vv .nav-cta { display: none; }
+    #vv .menu-btn { display: block; }
+    #vv .nav.open .nav-links, #vv .nav.open .nav-cta {
+      display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+    }
+    #vv .nav.open .wrap { flex-wrap: wrap; background: rgba(11,9,7,.97); padding: 20px 24px; border: 1px solid var(--line); border-radius: 8px; }
+    #vv .nav.open .nav-links, #vv .nav.open .nav-cta { width: 100%; margin-left: 0; }
+    #vv .hero { min-height: 0; }
+    #vv .hero::before { background: linear-gradient(0deg, rgba(11,9,7,.95) 0%, rgba(11,9,7,.9) calc(100% - 560px), rgba(11,9,7,0) calc(100% - 460px)); }
+    #vv .hero .hero-inner { padding-top: 510px; }
+    #vv .web-ui { left: 0; right: 0; top: 92px; }
+    #vv .web-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding: 4px 16px; scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
+    #vv .web-tabs::-webkit-scrollbar { display: none; }
+    #vv .web-legend { display: none; }
+    #vv .web-hint { display: none; }
+    #vv .match-grid { grid-template-columns: 1fr; }
+    #vv .match-img { margin: 24px 0 0; }
+    #vv .match-copy { padding: 48px 24px 72px; }
+    #vv .plans { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    #vv .plan.popular { transform: none; }
+    #vv .track { grid-auto-columns: calc((100% - 22px) / 2); }
+  }
+  @media (max-width: 600px) {
+    #vv .wrap { padding: 0 16px; }
+    #vv .section { padding: 72px 0; }
+    #vv .perks .wrap { grid-template-columns: repeat(2, 1fr); }
+    #vv .features-grid, #vv .session-grid { grid-template-columns: 1fr; }
+    #vv .track { grid-auto-columns: 88%; }
+    #vv .car-btn { display: none; }
+    #vv .hero .btn, #vv .final .btn { width: 100%; }
+  }
+
+</style>
+
+<style>
+  /* ---------- Membership page ---------- */
+  #vv .m-hero {
+    position: relative; overflow: hidden; padding: 150px 0 90px;
+    background:
+      radial-gradient(circle at 72% 46%, rgba(217,164,65,.16), transparent 40%),
+      radial-gradient(ellipse at 88% 10%, rgba(64,6,6,.75), transparent 50%),
+      radial-gradient(ellipse at 10% 100%, rgba(64,6,6,.45), transparent 55%),
+      var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  #vv .m-hero .wrap { max-width: none; padding-left: clamp(16px, 4vw, 64px); padding-right: clamp(16px, 4vw, 64px); }
+  #vv .m-hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; }
+  #vv .m-hero h1 { font-size: clamp(42px, 5.4vw, 68px); margin: 18px 0 20px; text-wrap: balance; }
+  #vv .m-hero p.lead { font-size: 17px; color: #e3d9ca; max-width: 540px; margin-bottom: 30px; }
+  #vv .m-ctas { display: flex; flex-wrap: wrap; gap: 14px; }
+  #vv .m-trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 22px; font-size: 13px; color: var(--muted); }
+  #vv .m-trust span { display: inline-flex; align-items: center; gap: 8px; }
+  #vv .m-trust .check { width: 16px; height: 16px; }
+  #vv .m-trust .check svg { width: 9px; height: 9px; }
+
+  /* gold membership cards */
+  #vv .m-cards { position: relative; height: 380px; perspective: 1200px; }
+  #vv .mcard {
+    position: absolute; width: min(420px, 88%); aspect-ratio: 1.586 / 1; border-radius: 18px; overflow: hidden;
+    padding: 26px 28px; display: flex; flex-direction: column; justify-content: space-between;
+    border: 1px solid rgba(242,196,107,.55);
+    box-shadow: 0 30px 60px rgba(0,0,0,.6), 0 0 50px rgba(217,164,65,.18), inset 0 1px 0 rgba(255,227,163,.35);
+    transition: transform .25s ease-out;
+  }
+  #vv .mcard::after {
+    content: ""; position: absolute; top: -20%; bottom: -20%; left: -60%; width: 40%;
+    background: linear-gradient(100deg, transparent, rgba(255,235,190,.28), transparent);
+    transform: skewX(-20deg); animation: vv-card-shine 6s ease-in-out infinite;
+  }
+  @keyframes vv-card-shine { 0%, 55% { left: -60%; } 100% { left: 140%; } }
+  #vv .mcard.pro {
+    right: 4%; top: 0; z-index: 2;
+    background:
+      radial-gradient(ellipse at 85% 0%, rgba(242,196,107,.28), transparent 55%),
+      linear-gradient(135deg, #2a1c0e 0%, #120d08 55%, #3a2812 100%);
+    animation: vv-float 7s ease-in-out infinite;
+  }
+  #vv .mcard.kit {
+    right: 22%; top: 150px; z-index: 1; transform: rotate(-8deg); opacity: .92;
+    background: linear-gradient(135deg, #400606 0%, #1d0605 60%, #3a0d0b 100%);
+    border-color: rgba(217,164,65,.4);
+  }
+  @keyframes vv-float { 0%, 100% { translate: 0 0; } 50% { translate: 0 -10px; } }
+  #vv .mcard .top { display: flex; justify-content: space-between; align-items: flex-start; }
+  #vv .mcard .mono { font-family: var(--serif); font-size: 44px; line-height: 1; font-weight: 600;
+    background: linear-gradient(180deg, #ffe7b0, #d9a441 60%, #a8782a); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  #vv .mcard .chip { width: 44px; height: 34px; border-radius: 6px; background: linear-gradient(135deg, #ffe3a3, #b8862f); opacity: .9;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,.25); position: relative; }
+  #vv .mcard .chip::before, #vv .mcard .chip::after { content: ""; position: absolute; background: rgba(60,40,10,.45); }
+  #vv .mcard .chip::before { left: 0; right: 0; top: 50%; height: 1px; }
+  #vv .mcard .chip::after { top: 0; bottom: 0; left: 50%; width: 1px; }
+  #vv .mcard .tier { font-family: var(--serif); font-size: 26px; color: #f4ede2; letter-spacing: .02em; }
+  #vv .mcard .tier small { display: block; font-family: var(--sans); font-size: 10.5px; letter-spacing: .28em; color: var(--gold-light); margin-top: 4px; }
+  #vv .mcard .perks-line { padding-right: 64px; font-size: 10.5px; letter-spacing: .16em; color: rgba(242,196,107,.75); text-transform: uppercase; }
+  #vv .mcard .price-tag { position: absolute; right: 26px; bottom: 24px; font-family: var(--serif); font-size: 22px; color: var(--gold-light); }
+  @media (prefers-reduced-motion: reduce) { #vv .mcard, #vv .mcard::after { animation: none; } }
+
+  /* how it works */
+  #vv .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: step; }
+  #vv .step { position: relative; background: linear-gradient(180deg, #1b150f, var(--card)); border: 1px solid var(--line); border-radius: 8px; padding: 30px 26px 28px; }
+  #vv .step .num { font-family: var(--serif); font-size: 46px; line-height: 1; color: var(--gold); opacity: .9; }
+  #vv .step h3 { font-size: 24px; margin: 12px 0 8px; }
+  #vv .step p { font-size: 14.5px; color: var(--muted); }
+  #vv .step p a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* compare table */
+  #vv .compare { background: var(--bg-2); border-top: 1px solid var(--line); }
+  #vv .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 8px; background: var(--card); max-width: 900px; margin: 0 auto; }
+  #vv table.cmp { width: 100%; border-collapse: collapse; min-width: 520px; font-size: 14.5px; }
+  #vv table.cmp th, #vv table.cmp td { padding: 14px 18px; border-bottom: 1px solid rgba(217,164,65,.14); text-align: center; }
+  #vv table.cmp th:first-child, #vv table.cmp td:first-child { text-align: left; color: #e3d9ca; }
+  #vv table.cmp thead th { font-family: var(--serif); font-size: 21px; font-weight: 600; color: var(--text); background: rgba(64,6,6,.35); }
+  #vv table.cmp thead th small { display: block; font-family: var(--sans); font-size: 13px; color: var(--gold-light); font-weight: 500; margin-top: 2px; }
+  #vv table.cmp thead th.hl { background: rgba(217,164,65,.14); }
+  #vv table.cmp td.hl { background: rgba(217,164,65,.05); }
+  #vv table.cmp tr:last-child td { border-bottom: 0; }
+  #vv table.cmp .yes { color: var(--gold-light); font-size: 18px; }
+  #vv table.cmp .no { color: rgba(185,173,156,.45); }
+  #vv table.cmp .note { font-size: 12.5px; color: var(--muted); }
+
+  /* membership FAQ */
+  #vv .m-faq { max-width: 820px; margin: 0 auto; }
+  #vv .m-faq details { border: 1px solid rgba(217,164,65,.2); border-radius: 6px; background: var(--card); margin-bottom: 10px; }
+  #vv .m-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 14px;
+    padding: 16px 20px; font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  #vv .m-faq summary::-webkit-details-marker { display: none; }
+  #vv .m-faq summary::after { content: ""; width: 9px; height: 9px; border-right: 1.5px solid var(--gold); border-bottom: 1.5px solid var(--gold);
+    transform: rotate(45deg) translateY(-3px); transition: transform .2s; flex: none; margin-right: 4px; }
+  #vv .m-faq details[open] summary::after { transform: rotate(225deg); }
+  #vv .m-faq details[open] { border-color: var(--gold-soft); }
+  #vv .m-faq .ans { padding: 0 20px 18px; font-size: 15px; color: var(--muted); }
+  #vv .m-faq .ans a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
+  #vv .m-faq summary:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
+
+  @media (max-width: 900px) {
+    #vv .m-hero { padding: 120px 0 70px; }
+    #vv .m-hero-grid { grid-template-columns: 1fr; gap: 26px; }
+    #vv .m-cards { height: 340px; order: -1; }
+    #vv .mcard.pro { right: 50%; translate: 50% 0; animation: none; width: min(360px, 86%); }
+    #vv .mcard.kit { right: 50%; top: 150px; transform: translateX(42%) rotate(-8deg); width: min(330px, 80%); }
+    #vv .steps { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    #vv .m-ctas .btn { width: 100%; }
+    #vv .mcard { padding: 18px 20px; }
+    #vv .mcard .mono { font-size: 34px; }
+    #vv .mcard .tier { font-size: 21px; }
+  }
+</style>
+
+<div id="vv">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="vv-ai" viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M10 10h4v4h-4z"/></symbol>
+      <symbol id="vv-brief" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+      <symbol id="vv-doc" viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></symbol>
+      <symbol id="vv-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3"/></symbol>
+      <symbol id="vv-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+      <symbol id="vv-chat" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
+      <symbol id="vv-group" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14a5 5 0 0 1 6 5"/></symbol>
+      <symbol id="vv-book" viewBox="0 0 24 24"><path d="M2 5h7a3 3 0 0 1 3 3v12a2 2 0 0 0-2-2H2zM22 5h-7a3 3 0 0 0-3 3v12a2 2 0 0 1 2-2h8z"/></symbol>
+      <symbol id="vv-chart" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 6-7"/><path d="M16 7h4v4"/></symbol>
+      <symbol id="vv-heart" viewBox="0 0 24 24"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 22l8.8-8.6a5.5 5.5 0 0 0 0-7.8z"/></symbol>
+      <symbol id="vv-sparkle" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/></symbol>
+      <symbol id="vv-lanes" viewBox="0 0 24 24"><path d="M12 21v-7M12 14L5 5M12 14l7-9M12 14V3"/><path d="M3 7l2-2 2 2M17 7l2-2 2 2M10 5l2-2 2 2"/></symbol>
+      <symbol id="vv-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5"/></symbol>
+      <symbol id="vv-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+      <symbol id="vv-check" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- ================= HERO ================= -->
+  <header class="m-hero">
+    <nav class="nav" id="vv-nav">
+      <div class="wrap">
+        <!-- LINK: home / career assessment page -->
+        <a class="logo" href="https://thevictoryvillage.com"><b>VI</b><span>VICTORY INSTITUTE</span></a>
+        <div class="nav-links">
+          <a href="https://thevictoryvillage.com">Career Assessment</a>
+          <a href="#vv-how">How It Works</a>
+          <a href="#vv-pricing">Plans</a>
+          <a href="#vv-compare">Compare</a>
+          <a href="#vv-sessions">Strategy Sessions</a>
+          <a href="#vv-faq">FAQ</a>
+          <!-- LINK: support page -->
+          <a href="https://thevictoryvillage.com/support">Support</a>
+        </div>
+        <div class="nav-cta">
+          <!-- LINK: login -->
+          <a class="btn btn-outline" href="https://portal.thevictoryvillage.com">Log In</a>
+          <a class="btn" href="#vv-pricing">Choose a Plan <span class="arrow">&rarr;</span></a>
+        </div>
+        <button class="menu-btn" type="button" aria-label="Open menu" onclick="document.getElementById('vv-nav').classList.toggle('open')">&#9776;</button>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <div class="m-hero-grid">
+        <div>
+          <div class="eyebrow">Victory Village Membership</div>
+          <h1>Your Career Moves Faster <span class="gold">With the Right Village.</span></h1>
+          <p class="lead">Get the tools to find and apply to the right claims jobs, a community that has your back, and Victoria&rsquo;s eyes on your situation when you need them. Month to month. Cancel anytime.</p>
+          <div class="m-ctas">
+            <!-- LINK: Victory Toolkit checkout ($47/month Stripe link) -->
+            <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Toolkit &mdash; $47/mo <span class="arrow">&rarr;</span></a>
+            <!-- LINK: Victory Village Pro checkout ($97/month) -->
+            <a class="btn btn-outline" href="https://checkout.thevictoryvillage.com">Join Pro &mdash; $97/mo <span class="arrow">&rarr;</span></a>
+          </div>
+          <div class="m-trust">
+            <span><span class="check"><svg><use href="#vv-check"/></svg></span>Month to month</span>
+            <span><span class="check"><svg><use href="#vv-check"/></svg></span>Cancel anytime</span>
+            <span><span class="check"><svg><use href="#vv-check"/></svg></span>Upgrade whenever you&rsquo;re ready</span>
+          </div>
+        </div>
+
+        <div class="m-cards" id="vv-cards" aria-hidden="true">
+          <div class="mcard kit">
+            <div class="top"><span class="mono">VI</span></div>
+            <div><div class="tier">Victory Toolkit<small>MEMBER</small></div></div>
+            <div class="perks-line">AI Coach &middot; Job Matching</div>
+            <span class="price-tag">$47</span>
+          </div>
+          <div class="mcard pro">
+            <div class="top"><span class="mono">VI</span><span class="chip"></span></div>
+            <div><div class="tier">Victory Village Pro<small>MEMBER</small></div></div>
+            <div class="perks-line">Community &middot; Workshops &middot; Co-working</div>
+            <span class="price-tag">$97</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section" id="vv-how">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">How It Works</div>
+        <h2>From Checkout to Your First Win.</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Pick your plan</h3>
+          <p>Start with the Toolkit for the job-hunting tools, or join Pro for the tools plus the community, workshops and deeper analysis.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Log in to the portal</h3>
+          <!-- LINK: student portal -->
+          <p>Your login details arrive by email right after checkout. Sign in to the <a href="https://portal.thevictoryvillage.com">Student Portal</a> and meet your AI Victory Coach.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Find your lane and grow</h3>
+          <p>See the roles you fit, close your skill gaps, and add a 1:1 Strategy Session with Victoria whenever you want a personal game plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="section pricing divider" id="vv-pricing">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Membership Plans</div>
+        <h2>Choose the Support That Fits Your Journey.</h2>
+        <p>Start with the Toolkit, join the Village community with Pro, and add a 1:1 Strategy Session whenever you need Victoria&rsquo;s eyes on your situation.</p>
+      </div>
+
+      <div class="plans">
+        <div class="plan">
+          <h3>Victory Toolkit</h3>
+          <div class="price">$47 <small>/month</small></div>
+          <div class="setup">&ldquo;Help me find and apply to the right jobs, faster.&rdquo;</div>
+          <p class="includes">Your job-hunting tools:</p>
+          <ul class="checks">
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>AI Victory Coach</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job matching &amp; job market insights</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job search &amp; application tracker</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career tools &amp; templates</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resource library</li>
+          </ul>
+          <!-- LINK: Victory Toolkit checkout ($47/month Stripe link) -->
+          <a class="btn" style="margin-top:28px" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Toolkit <span class="arrow">&rarr;</span></a>
+        </div>
+
+        <div class="plan popular">
+          <span class="badge">MOST POPULAR</span>
+          <h3>Victory Village Pro</h3>
+          <div class="price">$97 <small>/month</small></div>
+          <div class="setup">&ldquo;Help me figure out exactly how competitive I am and what I need to improve.&rdquo;</div>
+          <p class="includes">Everything in the Toolkit, plus:</p>
+          <ul class="checks">
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span><b>Private Victory Village community</b></li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span><b>Live workshops &amp; co-working sessions</b></li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Deeper personalized AI career analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resume &amp; profile analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Competency &amp; skill-gap analysis</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job-match improvement recommendations</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Advanced career tools</li>
+          </ul>
+          <!-- LINK: Victory Village Pro checkout ($97/month) -->
+          <a class="btn" style="margin-top:28px" href="https://checkout.thevictoryvillage.com">Join Victory Village Pro <span class="arrow">&rarr;</span></a>
+        </div>
+
+        <div class="plan addon">
+          <span class="badge badge-limited">LIMITED &mdash; 10 PER QUARTER</span>
+          <h3>1:1 Strategy Session</h3>
+          <div class="price">$100 <small>one-time add-on</small></div>
+          <div class="setup">&ldquo;Victoria, look at <em>my</em> situation and tell me what I&rsquo;m missing.&rdquo;</div>
+          <p class="includes">Pick the session you need:</p>
+          <ul class="checks">
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Golden Nugget Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career Lane Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job Placement Strategy Session</li>
+            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Positioning Session</li>
+          </ul>
+          <a class="more" href="#vv-sessions">See what each session covers &darr;</a>
+          <p class="spots">Only 10 sessions are open each quarter. When they&rsquo;re gone, they&rsquo;re gone.</p>
+          <!-- LINK: Strategy Session checkout ($100 one-time) -->
+          <a class="btn" href="https://checkout.thevictoryvillage.com">Claim a Session <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= STRATEGY SESSIONS ================= -->
+  <section class="section sessions" id="vv-sessions">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">1:1 Strategy Sessions &middot; $100</div>
+        <h2>Victoria&rsquo;s Proven Framework,<br>Applied to <span class="gold">Your</span> Career.</h2>
+        <p>Each session goes deep on one part of your career, using the same framework behind the Village. Pick the one that matches where you&rsquo;re stuck.</p>
+      </div>
+      <div class="session-grid">
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-sparkle"/></svg></span><h3>Golden Nugget Session</h3></div>
+          <p>Uncover the strongest intersection between your experience, your transferable value and your target career opportunities.</p>
+          <p class="ask">&ldquo;What&rsquo;s the most valuable thing I bring that I&rsquo;m not using?&rdquo;</p>
+          <!-- LINK: book the Golden Nugget Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-lanes"/></svg></span><h3>Career Lane Session</h3></div>
+          <p>Determine the 2&ndash;3 career lanes you should actually be targeting, instead of applying randomly.</p>
+          <p class="ask">&ldquo;Where should I focus so my applications actually land?&rdquo;</p>
+          <!-- LINK: book the Career Lane Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-target"/></svg></span><h3>Job Placement Strategy Session</h3></div>
+          <p>Analyze why you&rsquo;re not getting interviews or offers, and identify exactly what needs to change.</p>
+          <p class="ask">&ldquo;Why am I not hearing back, and what do I fix first?&rdquo;</p>
+          <!-- LINK: book the Job Placement Strategy Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+        <div class="session">
+          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-compass"/></svg></span><h3>Positioning Session</h3></div>
+          <p>Compare your resume and background against where you&rsquo;re trying to go, and identify the positioning gaps.</p>
+          <p class="ask">&ldquo;How do I look like the right fit for the role I want?&rdquo;</p>
+          <!-- LINK: book the Positioning Session -->
+          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+      <p class="session-note"><svg class="ico"><use href="#vv-cal"/></svg>Add-on for Toolkit and Pro members &nbsp;&middot;&nbsp; <b>Only 10 sessions each quarter</b></p>
+    </div>
+  </section>
+
+  <!-- ================= COMPARE ================= -->
+  <section class="section compare" id="vv-compare">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Compare Plans</div>
+        <h2>Toolkit or Pro?</h2>
+        <p>The Toolkit is for finding and applying to the right jobs. Pro adds the Village around you and shows you exactly how competitive you are.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="cmp">
+          <thead>
+            <tr><th scope="col">What you get</th><th scope="col">Toolkit<small>$47/mo</small></th><th scope="col" class="hl">Pro<small>$97/mo</small></th></tr>
+          </thead>
+          <tbody>
+              <tr><td>AI Victory Coach</td><td class="yes" aria-label="Included">&#10003;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Job matching &amp; job market insights</td><td class="yes" aria-label="Included">&#10003;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Job search &amp; application tracker</td><td class="yes" aria-label="Included">&#10003;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Career tools, templates &amp; resource library</td><td class="yes" aria-label="Included">&#10003;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Private Victory Village community</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Live workshops &amp; co-working sessions</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Deeper personalized AI career analysis</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Resume &amp; profile analysis</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Competency &amp; skill-gap analysis</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Job-match improvement recommendations</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>Advanced career tools</td><td class="no" aria-label="Not included">&mdash;</td><td class="yes hl" aria-label="Included">&#10003;</td></tr>
+              <tr><td>1:1 Strategy Session add-on <span class="note">($100, 10 per quarter)</span></td><td class="note">Available</td><td class="note hl">Available</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section" id="vv-faq">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Membership Questions</div>
+        <h2>Before You Join.</h2>
+      </div>
+      <div class="m-faq">
+        <details>
+          <summary>Is there a contract?</summary>
+          <div class="ans">No. Both plans are month to month and renew automatically each month until you cancel.</div>
+        </details>
+        <details>
+          <summary>Can I cancel anytime?</summary>
+          <!-- LINK: subscription management + refund policy -->
+          <div class="ans">Yes. Cancel from the <a href="https://billing.stripe.com/p/login/14A14ma8Ce9N3fQ3qSdMI00">subscription management portal</a>. Canceling stops your next renewal; it doesn&rsquo;t refund the current billing period. See our <a href="https://thevictoryvillage.com/returnpolicy-village">Refund &amp; Cancellation Policy</a>.</div>
+        </details>
+        <details>
+          <summary>What&rsquo;s the difference between the Toolkit and Pro?</summary>
+          <div class="ans">The Toolkit ($47/mo) is the job-hunting toolkit: the AI Victory Coach, job matching and market insights, an application tracker, career tools and the resource library. Pro ($97/mo) adds the private Victory Village community, live workshops and co-working, plus deeper AI analysis of your resume, profile, skill gaps and job matches.</div>
+        </details>
+        <details>
+          <summary>Can I start with the Toolkit and upgrade later?</summary>
+          <!-- LINK: support page -->
+          <div class="ans">Yes. Start with the Toolkit and move up to Pro whenever you&rsquo;re ready. <a href="https://thevictoryvillage.com/support">Contact support</a> and we&rsquo;ll switch your plan.</div>
+        </details>
+        <details>
+          <summary>What happens in a 1:1 Strategy Session?</summary>
+          <div class="ans">It&rsquo;s a private session with Victoria focused on one career decision or problem. Choose a Golden Nugget, Career Lane, Job Placement Strategy or Positioning Session. Sessions are $100 each and only 10 are open each quarter.</div>
+        </details>
+        <details>
+          <summary>Do I need a membership to book a Strategy Session?</summary>
+          <div class="ans">Strategy Sessions are an add-on for Toolkit and Pro members, so pick a plan first and then claim your session.</div>
+        </details>
+        <details>
+          <summary>How do I log in after I join?</summary>
+          <div class="ans">Check your email for your login details, then sign in to the <a href="https://portal.thevictoryvillage.com">Student Portal</a> with the email you used at checkout.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="final">
+    <div class="wrap">
+      <div class="logo"><b>VI</b><span>VICTORY INSTITUTE</span></div>
+      <h2>Your Next Opportunity<br>Starts Here.</h2>
+      <p>Pick the plan that fits where you are today. You can always go further tomorrow.</p>
+      <div class="m-ctas" style="justify-content:center">
+        <!-- LINK: Victory Toolkit checkout ($47/month Stripe link) -->
+        <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Toolkit &mdash; $47/mo <span class="arrow">&rarr;</span></a>
+        <!-- LINK: Victory Village Pro checkout ($97/month) -->
+        <a class="btn btn-outline" href="https://checkout.thevictoryvillage.com">Join Pro &mdash; $97/mo <span class="arrow">&rarr;</span></a>
+      </div>
+      <p class="fineprint">Month to month &nbsp;|&nbsp; Cancel anytime</p>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="wrap">
+      <span>&copy; 2026 Victory Insured Inc. &middot; Victory Institute. All rights reserved.</span>
+      <nav>
+        <a href="https://thevictoryvillage.com/support">Customer Support</a>
+        <a href="https://thevictoryvillage.com/terms-conditions">Terms &amp; Conditions</a>
+        <a href="https://thevictoryvillage.com/privacypolicy-village">Privacy Policy</a>
+        <a href="https://thevictoryvillage.com/returnpolicy-village">Refund Policy</a>
+        <a href="https://thevictoryvillage.com/storepolicy-village">Store Policy</a>
+        <a href="https://billing.stripe.com/p/login/14A14ma8Ce9N3fQ3qSdMI00">Manage Subscription</a>
+      </nav>
+    </div>
+  </footer>
+</div>
+
+<script>
+/* Gentle tilt on the membership cards as the mouse moves (desktop only). */
+(function () {
+  var wrap = document.getElementById('vv-cards');
+  if (!wrap || (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  var pro = wrap.querySelector('.mcard.pro');
+  wrap.addEventListener('mousemove', function (e) {
+    if (window.innerWidth < 900) return;
+    var r = wrap.getBoundingClientRect();
+    var x = (e.clientX - r.left) / r.width - 0.5, y = (e.clientY - r.top) / r.height - 0.5;
+    pro.style.transform = 'rotateY(' + (x * 14) + 'deg) rotateX(' + (-y * 12) + 'deg)';
+  });
+  wrap.addEventListener('mouseleave', function () { pro.style.transform = ''; });
+})();
+</script>

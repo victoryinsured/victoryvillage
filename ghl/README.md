@@ -2,10 +2,11 @@
 
 | File | Page | Suggested GHL path |
 |---|---|---|
-| `victory-village-home.html` | Home / sales page | `/` |
+| `victory-village-home.html` | Home / career assessment page | `/` |
+| `victory-village-membership.html` | Membership page (plans, compare, strategy sessions) | `/membership` |
 | `victory-village-support.html` | Customer support page | `/support` |
 
-Both pages link to each other: the home page menu and footer have a **Support** link to `https://thevictoryvillage.com/support`. If you publish the support page at a different path, search both files for `/support"` and update it.
+The pages link to each other through `https://thevictoryvillage.com/membership` and `https://thevictoryvillage.com/support`. If you publish a page at a different path, search all three files for `/membership"` or `/support"` and update it.
 
 `victory-village-home.html` is the whole page in one file: styles, content and a little script.
 
@@ -37,13 +38,19 @@ Your Career Match photo is **built into the page**, so it shows up as soon as yo
 The gold buttons glow gently and a light sweeps across them every few seconds. To tone the glow down, lower the numbers inside `@keyframes vv-glow`. To remove the light sweep, delete the `#vv .btn::after` rule. Visitors whose device is set to reduce motion see a still glow with no animation.
 
 ## Offers and links
+The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on the **membership page**. The home page has a short **Membership** band that sends people there, and its menu has a **Membership** link and a **Join the Village** button.
+
 | Offer | Price | Button link |
 |---|---|---|
-| Victory Toolkit (job-hunting tools only) | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (hero, pricing card, closing section) |
+| Victory Toolkit (job-hunting tools only) | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (membership page, plus the home page hero and closing buttons) |
 | Victory Village Pro (Toolkit + community, workshops, co-working, deeper analysis) | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
 | 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | placeholder `https://checkout.thevictoryvillage.com` (pricing card and the four "Book this session" links) |
+| Career assessment | | placeholder: "Try the Career Assessment" on the home page still goes to `https://checkout.thevictoryvillage.com` until you send the assessment link |
 
-The four session types (Golden Nugget, Career Lane, Job Placement Strategy, Positioning) are listed on the Strategy Session card and explained in the section right below pricing. Each has its own "Book this session" link, so you can give each one its own checkout or calendar link. The **Get Started** button in the top menu jumps down to the plans. Search the file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
+Search each file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
+
+## Membership page
+Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero with two gold membership cards (they tilt slightly with the mouse on desktop), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).

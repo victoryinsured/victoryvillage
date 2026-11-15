@@ -1,5 +1,5 @@
 <!--
-  VICTORY VILLAGE — Home / Sales Page
+  VICTORY VILLAGE — Home / Career Assessment Page
   Paste this whole file into a GoHighLevel "Custom JS/HTML" element
   (Sites > Funnels/Websites > edit page > add element > Custom JS/HTML).
   Set the GHL section/row to full width with 0 padding so it goes edge to edge.
@@ -275,6 +275,17 @@
   #vv .session-note { display: flex; gap: 10px; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 34px; font-size: 14px; color: var(--muted); text-align: center; }
   #vv .session-note b { color: var(--gold-light); }
 
+  /* ---------- Membership band ---------- */
+  #vv .m-band { background: radial-gradient(ellipse at 50% 0%, rgba(64,6,6,.45), transparent 60%), var(--bg); }
+  #vv .band-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1000px; margin: 0 auto; }
+  #vv .band-plan { position: relative; background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 28px 24px 24px; text-align: center; }
+  #vv .band-plan.pro { border: 1.5px solid var(--gold); box-shadow: 0 0 50px rgba(217,164,65,.14); }
+  #vv .band-plan h3 { font-size: 23px; }
+  #vv .band-price { font-family: var(--serif); font-size: 42px; color: var(--gold); font-weight: 600; line-height: 1; margin: 10px 0 12px; }
+  #vv .band-price small { font-size: 17px; color: var(--muted); font-weight: 500; }
+  #vv .band-plan p { font-size: 14px; color: var(--muted); }
+  #vv .band-cta { text-align: center; margin-top: 36px; }
+
   /* ---------- Testimonials ---------- */
   #vv .testi { background: var(--bg-2); border-top: 1px solid var(--line); }
   #vv .carousel { position: relative; }
@@ -362,7 +373,7 @@
     #vv .match-grid { grid-template-columns: 1fr; }
     #vv .match-img { margin: 24px 0 0; }
     #vv .match-copy { padding: 48px 24px 72px; }
-    #vv .plans { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    #vv .plans, #vv .band-plans { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
     #vv .plan.popular { transform: none; }
     #vv .track { grid-auto-columns: calc((100% - 22px) / 2); }
   }
@@ -432,15 +443,16 @@
           <a href="#vv-features">Job Board</a>
           <a href="#vv-features">Events</a>
           <a href="#vv-stories">Success Stories</a>
-          <a href="#vv-pricing">Pricing</a>
+          <!-- LINK: membership page -->
+          <a href="https://thevictoryvillage.com/membership">Membership</a>
           <!-- LINK: support page -->
           <a href="https://thevictoryvillage.com/support">Support</a>
         </div>
         <div class="nav-cta">
           <!-- LINK: login -->
           <a class="btn btn-outline" href="https://portal.thevictoryvillage.com">Log In</a>
-          <!-- LINK: nav button jumps to the plans -->
-          <a class="btn" href="#vv-pricing">Get Started <span class="arrow">&rarr;</span></a>
+          <!-- LINK: membership page -->
+          <a class="btn" href="https://thevictoryvillage.com/membership">Join the Village <span class="arrow">&rarr;</span></a>
         </div>
         <button class="menu-btn" type="button" aria-label="Open menu" onclick="document.getElementById('vv-nav').classList.toggle('open')">&#9776;</button>
       </div>
@@ -453,7 +465,7 @@
         <p class="lead">Join a private community with AI-powered career guidance, real job opportunities, expert support, and the tools you need to break into and grow in the claims industry.</p>
         <!-- LINK: join -->
         <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Victory Toolkit &mdash; $47/month <span class="arrow">&rarr;</span></a>
-        <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="#vv-pricing" style="color:var(--gold);text-decoration:underline">See Victory Village Pro</a></p>
+        <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="https://thevictoryvillage.com/membership" style="color:var(--gold);text-decoration:underline">See Victory Village Pro</a></p>
       </div>
     </div>
 
@@ -669,111 +681,24 @@
     </div>
   </section>
 
-  <!-- ================= PRICING ================= -->
-  <section class="section pricing divider" id="vv-pricing">
+  <!-- ================= MEMBERSHIP BAND ================= -->
+  <section class="section m-band divider" id="vv-pricing">
     <div class="wrap">
       <div class="section-head">
-        <div class="eyebrow">Simple Pricing. Real Value.</div>
-        <h2>Choose the Support That Fits Your Journey.</h2>
-        <p>Start with the Toolkit, join the Village community with Pro, and add a 1:1 Strategy Session whenever you need Victoria&rsquo;s eyes on your situation.</p>
+        <div class="eyebrow">Membership</div>
+        <h2>Ready to Go Further?</h2>
+        <p>Turn what you see in your career web into interviews and offers. Pick the support that fits where you are.</p>
       </div>
-
-      <div class="plans">
-        <div class="plan">
-          <h3>Victory Toolkit</h3>
-          <div class="price">$47 <small>/month</small></div>
-          <div class="setup">&ldquo;Help me find and apply to the right jobs, faster.&rdquo;</div>
-          <p class="includes">Your job-hunting tools:</p>
-          <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>AI Victory Coach</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job matching &amp; job market insights</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job search &amp; application tracker</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career tools &amp; templates</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resource library</li>
-          </ul>
-          <!-- LINK: Victory Toolkit checkout ($47/month Stripe link) -->
-          <a class="btn" style="margin-top:28px" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Toolkit <span class="arrow">&rarr;</span></a>
-        </div>
-
-        <div class="plan popular">
-          <span class="badge">MOST POPULAR</span>
-          <h3>Victory Village Pro</h3>
-          <div class="price">$97 <small>/month</small></div>
-          <div class="setup">&ldquo;Help me figure out exactly how competitive I am and what I need to improve.&rdquo;</div>
-          <p class="includes">Everything in the Toolkit, plus:</p>
-          <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span><b>Private Victory Village community</b></li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span><b>Live workshops &amp; co-working sessions</b></li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Deeper personalized AI career analysis</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Resume &amp; profile analysis</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Competency &amp; skill-gap analysis</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job-match improvement recommendations</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Advanced career tools</li>
-          </ul>
-          <!-- LINK: Victory Village Pro checkout ($97/month) -->
-          <a class="btn" style="margin-top:28px" href="https://checkout.thevictoryvillage.com">Join Victory Village Pro <span class="arrow">&rarr;</span></a>
-        </div>
-
-        <div class="plan addon">
-          <span class="badge badge-limited">LIMITED &mdash; 10 PER QUARTER</span>
-          <h3>1:1 Strategy Session</h3>
-          <div class="price">$100 <small>one-time add-on</small></div>
-          <div class="setup">&ldquo;Victoria, look at <em>my</em> situation and tell me what I&rsquo;m missing.&rdquo;</div>
-          <p class="includes">Pick the session you need:</p>
-          <ul class="checks">
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Golden Nugget Session</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Career Lane Session</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Job Placement Strategy Session</li>
-            <li><span class="check"><svg><use href="#vv-check"/></svg></span>Positioning Session</li>
-          </ul>
-          <a class="more" href="#vv-sessions">See what each session covers &darr;</a>
-          <p class="spots">Only 10 sessions are open each quarter. When they&rsquo;re gone, they&rsquo;re gone.</p>
-          <!-- LINK: Strategy Session checkout ($100 one-time) -->
-          <a class="btn" href="https://checkout.thevictoryvillage.com">Claim a Session <span class="arrow">&rarr;</span></a>
-        </div>
+      <div class="band-plans">
+        <div class="band-plan"><h3>Victory Toolkit</h3><div class="band-price">$47<small>/mo</small></div><p>Your job-hunting tools: AI Victory Coach, job matching and an application tracker.</p></div>
+        <div class="band-plan pro"><span class="badge">MOST POPULAR</span><h3>Victory Village Pro</h3><div class="band-price">$97<small>/mo</small></div><p>The tools plus the community, live workshops, co-working and deeper AI analysis.</p></div>
+        <div class="band-plan"><h3>1:1 Strategy Session</h3><div class="band-price">$100<small> add-on</small></div><p>Victoria looks at your situation. Only 10 sessions each quarter.</p></div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= STRATEGY SESSIONS ================= -->
-  <section class="section sessions" id="vv-sessions">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="eyebrow">1:1 Strategy Sessions &middot; $100</div>
-        <h2>Victoria&rsquo;s Proven Framework,<br>Applied to <span class="gold">Your</span> Career.</h2>
-        <p>Each session goes deep on one part of your career, using the same framework behind the Village. Pick the one that matches where you&rsquo;re stuck.</p>
+      <div class="band-cta">
+        <!-- LINK: membership page -->
+        <a class="btn" href="https://thevictoryvillage.com/membership">See Membership Plans <span class="arrow">&rarr;</span></a>
+        <p class="fineprint">Month to month &nbsp;|&nbsp; Cancel anytime</p>
       </div>
-      <div class="session-grid">
-        <div class="session">
-          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-sparkle"/></svg></span><h3>Golden Nugget Session</h3></div>
-          <p>Uncover the strongest intersection between your experience, your transferable value and your target career opportunities.</p>
-          <p class="ask">&ldquo;What&rsquo;s the most valuable thing I bring that I&rsquo;m not using?&rdquo;</p>
-          <!-- LINK: book the Golden Nugget Session -->
-          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
-        </div>
-        <div class="session">
-          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-lanes"/></svg></span><h3>Career Lane Session</h3></div>
-          <p>Determine the 2&ndash;3 career lanes you should actually be targeting, instead of applying randomly.</p>
-          <p class="ask">&ldquo;Where should I focus so my applications actually land?&rdquo;</p>
-          <!-- LINK: book the Career Lane Session -->
-          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
-        </div>
-        <div class="session">
-          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-target"/></svg></span><h3>Job Placement Strategy Session</h3></div>
-          <p>Analyze why you&rsquo;re not getting interviews or offers, and identify exactly what needs to change.</p>
-          <p class="ask">&ldquo;Why am I not hearing back, and what do I fix first?&rdquo;</p>
-          <!-- LINK: book the Job Placement Strategy Session -->
-          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
-        </div>
-        <div class="session">
-          <div class="session-top"><span class="session-ico"><svg class="ico"><use href="#vv-compass"/></svg></span><h3>Positioning Session</h3></div>
-          <p>Compare your resume and background against where you&rsquo;re trying to go, and identify the positioning gaps.</p>
-          <p class="ask">&ldquo;How do I look like the right fit for the role I want?&rdquo;</p>
-          <!-- LINK: book the Positioning Session -->
-          <a class="session-link" href="https://checkout.thevictoryvillage.com">Book this session <span class="arrow">&rarr;</span></a>
-        </div>
-      </div>
-      <p class="session-note"><svg class="ico"><use href="#vv-cal"/></svg>Add-on for Toolkit and Pro members &nbsp;&middot;&nbsp; <b>Only 10 sessions each quarter</b></p>
     </div>
   </section>
 
@@ -829,7 +754,7 @@
       <p>Join a community that helps you see your value, close your gaps, and get hired &mdash; with the power of AI and real human support.</p>
       <!-- LINK: join -->
       <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Victory Toolkit &mdash; $47/month <span class="arrow">&rarr;</span></a>
-      <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="#vv-pricing" style="color:var(--gold);text-decoration:underline">See Victory Village Pro</a></p>
+      <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="https://thevictoryvillage.com/membership" style="color:var(--gold);text-decoration:underline">See Victory Village Pro</a></p>
     </div>
   </section>
 
