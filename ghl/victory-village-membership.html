@@ -513,6 +513,23 @@
   #vv .light.final { background: radial-gradient(ellipse at 50% 30%, rgba(217,164,65,.18), transparent 60%), var(--bg-2); }
   #vv .light.final p { color: var(--muted); }
   #vv .light .divider, #vv .light.divider { border-color: var(--line); }
+  /* light hero: photo fades into ivory on the left, dark text */
+  #vv .light.m-hero { background: var(--bg); border-bottom-color: var(--line); }
+  #vv .light .m-photo::after {
+    background:
+      linear-gradient(90deg, #faf7f1 0%, rgba(250,247,241,.75) 12%, rgba(250,247,241,0) 34%);
+  }
+  @media (min-width: 901px) {
+    #vv .light.m-hero { padding-top: 92px; }               /* menu gets its own ivory strip above the photo */
+    #vv .light.m-hero > .wrap { padding-top: 92px; }
+  }
+  #vv .light .m-copy { text-shadow: none; }
+  #vv .light.m-hero p.lead { color: #3d3024; }
+  #vv .light .m-trust { color: var(--muted); }
+  #vv .light .nav-links { color: #2a2018; }
+  #vv .light .nav-links a:hover { color: var(--gold); }
+  #vv .light .logo b, #vv .light .logo span { color: var(--gold); }
+  #vv .light .nav.open .wrap { background: #fffdf9; box-shadow: 0 12px 30px rgba(60,40,10,.15); }
 </style>
 
 <div id="vv">
@@ -537,7 +554,7 @@
   </svg>
 
   <!-- ================= HERO ================= -->
-  <header class="m-hero">
+  <header class="light m-hero">
     <nav class="nav" id="vv-nav">
       <div class="wrap">
         <!-- LINK: home / career assessment page -->

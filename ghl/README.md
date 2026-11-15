@@ -10,8 +10,10 @@ The pages link to each other through `https://thevictoryvillage.com/membership` 
 
 `victory-village-home.html` is the whole page in one file: styles, content and a little script.
 
-## Light sections
-Below the hero, every page is light: ivory and white backgrounds, dark text and gold accents. The heroes and the footer stay dark so the photos and the career web pop. The light colors live in the `LIGHT SECTIONS` style block near the top of each file; any section with `class="light"` uses them.
+## Light membership page
+The **membership page** is light from top to bottom: ivory and white backgrounds, dark text and gold accents, with only the footer dark. In the hero, the menu sits on its own ivory strip and the lounge photo fades into ivory on the left, where the headline is. The light colors live in the `LIGHT SECTIONS` style block near the top of that file; any section with `class="light"` uses them.
+
+The **career assessment** and **support** pages stay in the original dark style.
 
 ## Add it to GoHighLevel
 1. Go to **Sites → Websites (or Funnels) →** your page → **Edit**.
