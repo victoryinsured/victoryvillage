@@ -24,6 +24,8 @@ The **career assessment** and **support** pages stay in the original dark style.
 6. Preview on desktop and mobile, then publish.
 
 ## Hero career web (interactive)
+The hero now uses a light pearl look: a glowing glass sphere with the starting job, frosted pills for skills (small) and claims roles (with icons) that float out of it, slowly turning light rays and ribbons, drifting sparkles, and gold lights travelling along the connections. Hovering a role lights it and the skill that leads to it. The rest of this section still describes the tabs and the `WEBS` data, which work the same way.
+
 The hero is an animated gold web with a row of tabs above it: **Where are you coming from?** Banker, Nurse, Customer Service, Warehouse Worker, Government Worker.
 - Clicking a tab regrows the web from that job. It goes out to the **skills they already have** (hollow rings), then the **claims roles those skills fit** (bright gold dots), then **where those roles can lead** (small dots). A legend under the web explains the three kinds.
 - Hovering over (or tapping) any role lights up its path back to the center. Every few seconds a path also lights up on its own.
