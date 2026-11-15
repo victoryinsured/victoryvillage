@@ -1,4 +1,4 @@
-# Victory Village pages for GoHighLevel
+# Victory Society pages for GoHighLevel
 
 | File | Page | Suggested GHL path |
 |---|---|---|
@@ -38,12 +38,12 @@ Your Career Match photo is **built into the page**, so it shows up as soon as yo
 The gold buttons glow gently and a light sweeps across them every few seconds. To tone the glow down, lower the numbers inside `@keyframes vv-glow`. To remove the light sweep, delete the `#vv .btn::after` rule. Visitors whose device is set to reduce motion see a still glow with no animation.
 
 ## Offers and links
-The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on the **membership page**. The home page has a short **Membership** band that sends people there, and its menu has a **Membership** link and a **Join the Village** button.
+The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on the **membership page**. The home page has a short **Membership** band that sends people there, and its menu has a **Membership** link and a **Join the Society** button.
 
 | Offer | Price | Button link |
 |---|---|---|
 | Victory Toolkit (job-hunting tools only) | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (membership page, plus the home page hero and closing buttons) |
-| Victory Village Pro (Toolkit + community, workshops, co-working, deeper analysis) | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
+| Victory Society Pro (Toolkit + community, workshops, co-working, deeper analysis) | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
 | 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | placeholder `https://checkout.thevictoryvillage.com` (pricing card and the four "Book this session" links) |
 | Career assessment | | placeholder: "Try the Career Assessment" on the home page still goes to `https://checkout.thevictoryvillage.com` until you send the assessment link |
 
