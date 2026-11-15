@@ -133,27 +133,24 @@
   /* career web tabs + legend */
   #vv .web-ui { position: absolute; z-index: 3; top: 104px; left: 46%; right: clamp(16px, 4vw, 64px); text-align: center; }
   #vv .web-ui .web-q { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; }
-  #vv .web-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  #vv .web-tabs { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 22px; }
   #vv .web-tab {
-    font: 500 13.5px var(--sans); color: #e9dfcf; background: rgba(11,9,7,.65); cursor: pointer;
-    border: 1px solid var(--gold-soft); border-radius: 999px; padding: 8px 16px; white-space: nowrap;
-    transition: border-color .2s, background .2s, color .2s, box-shadow .2s;
+    font: 500 13.5px var(--sans); letter-spacing: .01em; color: #bfb3a2; background: none; cursor: pointer;
+    border: 0; border-bottom: 1px solid transparent; padding: 6px 1px 7px; white-space: nowrap;
+    transition: color .2s, border-color .2s;
   }
-  #vv .web-tab:hover { border-color: var(--gold); color: #fff; }
-  #vv .web-tab:focus-visible { outline: 2px solid var(--gold-light); outline-offset: 2px; }
-  #vv .web-tab[aria-pressed="true"] {
-    background: linear-gradient(180deg, #ffe3a3, var(--gold)); color: #1a1208; border-color: #ffd98a; font-weight: 600;
-    box-shadow: 0 0 18px rgba(255,205,110,.45);
-  }
+  #vv .web-tab:hover { color: #f4ede2; }
+  #vv .web-tab:focus-visible { outline: 1px solid var(--gold-light); outline-offset: 4px; }
+  #vv .web-tab[aria-pressed="true"] { color: var(--gold-light); border-bottom-color: var(--gold-light); }
   #vv .web-legend {
     position: absolute; z-index: 3; left: 46%; right: clamp(16px, 4vw, 64px); bottom: 116px;
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; font-size: 12.5px; color: var(--muted); pointer-events: none;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 26px; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #9d917f; pointer-events: none;
   }
   #vv .web-legend span { display: inline-flex; align-items: center; gap: 8px; }
-  #vv .web-legend i { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
-  #vv .web-legend .lg-skill { border: 1.5px solid var(--gold-light); }
-  #vv .web-legend .lg-role { background: var(--gold); box-shadow: 0 0 8px rgba(242,196,107,.7); }
-  #vv .web-legend .lg-grow { background: #8a6a2e; width: 8px; height: 8px; }
+  #vv .web-legend i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  #vv .web-legend .lg-skill { border: 1.1px solid var(--gold-light); }
+  #vv .web-legend .lg-role { background: var(--gold-light); box-shadow: 0 0 0 2.5px #0b0907, 0 0 0 3.1px rgba(242,196,107,.45), 0 0 10px 2px rgba(242,196,107,.45); }
+  #vv .web-legend .lg-grow { background: #c9a15a; width: 5px; height: 5px; box-shadow: 0 0 6px rgba(242,196,107,.4); }
   #vv .web-hint { font-size: 12px; color: var(--muted); margin-top: 10px; }
   #vv .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
   #vv .hero::before {
@@ -364,8 +361,8 @@
     #vv .nav.open .nav-links, #vv .nav.open .nav-cta { width: 100%; margin-left: 0; }
     #vv .hero { min-height: 0; }
     #vv .hero::before { background: linear-gradient(0deg, rgba(11,9,7,.95) 0%, rgba(11,9,7,.9) calc(100% - 560px), rgba(11,9,7,0) calc(100% - 460px)); }
-    #vv .hero .hero-inner { padding-top: 510px; }
-    #vv .web-ui { left: 0; right: 0; top: 92px; }
+    #vv .hero .hero-inner { padding-top: 530px; }
+    #vv .web-ui { left: 0; right: 0; top: 112px; }
     #vv .web-tabs { flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto; padding: 4px 16px; scrollbar-width: none;
       -webkit-mask-image: linear-gradient(90deg, #000 85%, transparent); mask-image: linear-gradient(90deg, #000 85%, transparent); }
     #vv .web-tabs::-webkit-scrollbar { display: none; }
@@ -885,10 +882,20 @@
   var pulses = [], hi = null, hover = null, nextHi = 0, cycleAt = 0, userPicked = false;
   function pathTo(n) { var set = []; while (n) { set.push(n); n = n.parent; } return set; }
   function lit() { return hover || hi; }
-  function pos(n, time) {
-    var d = reduce || !n.ring ? 0 : 3, ex = small ? 1 : 1.18;
-    n.x = cx + Math.cos(n.a) * n.rf * R * ex + Math.sin(time * 0.35 + n.phase) * d;
-    n.y = cy + Math.sin(n.a) * n.rf * R * 0.88 + Math.cos(time * 0.3 + n.phase) * d;
+  function pos(n) {
+    var ex = small ? 1 : 1.18;
+    n.x = cx + Math.cos(n.a) * n.rf * R * ex;
+    n.y = cy + Math.sin(n.a) * n.rf * R * 0.88;
+  }
+  // gently curved connections: control point bowed sideways from the straight line
+  function ctrl(e) {
+    var mx = (e.a.x + e.b.x) / 2, my = (e.a.y + e.b.y) / 2, dx = e.b.x - e.a.x, dy = e.b.y - e.a.y;
+    var bow = e.main ? 0.12 : 0.18;
+    return { x: mx - dy * bow, y: my + dx * bow };
+  }
+  function qpt(a, c, b, t) {
+    var u = 1 - t;
+    return { x: u * u * a.x + 2 * u * t * c.x + t * t * b.x, y: u * u * a.y + 2 * u * t * c.y + t * t * b.y };
   }
   function ease(x) { x = Math.max(0, Math.min(1, x)); return 1 - Math.pow(1 - x, 3); }
   function onPath(e, L) { return L && L.indexOf(e.a) > -1 && L.indexOf(e.b) > -1 && (e.b.parent === e.a || e.a.parent === e.b); }
@@ -899,76 +906,101 @@
     var L = lit();
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ctx.clearRect(0, 0, W, H);
-    nodes.forEach(function (n) { pos(n, time); });
+    nodes.forEach(pos);
+    var ex = small ? 1 : 1.18;
 
+    // faint orbit guides behind each ring, like a drawn chart
+    var og = ease(time / 1.2);
+    ctx.save(); ctx.setLineDash([1.5, 6]); ctx.lineWidth = 0.6;
+    [RADII[1], RADII[2], RADII[3]].forEach(function (rf, i) {
+      ctx.strokeStyle = 'rgba(217,164,65,' + (0.16 - i * 0.03) * og + ')';
+      ctx.beginPath(); ctx.ellipse(cx, cy, rf * R * ex, rf * R * 0.88, 0, 0, 6.283); ctx.stroke();
+    });
+    ctx.restore();
+
+    // connections: fine curved hairlines (links across a ring are dotted)
     edges.forEach(function (e) {
       var p = ease((time - e.start) / GROW);
       if (p <= 0) return;
-      var on = onPath(e, L);
-      ctx.beginPath(); ctx.moveTo(e.a.x, e.a.y);
-      ctx.lineTo(e.a.x + (e.b.x - e.a.x) * p, e.a.y + (e.b.y - e.a.y) * p);
-      ctx.strokeStyle = on ? 'rgba(255,215,130,.95)' : e.main ? 'rgba(217,164,65,.38)' : 'rgba(217,164,65,.16)';
-      ctx.lineWidth = on ? 2.2 : e.main ? 1.2 : 0.8;
-      ctx.shadowColor = 'rgba(242,196,107,.9)'; ctx.shadowBlur = on ? 12 : 0;
-      ctx.stroke(); ctx.shadowBlur = 0;
+      var on = onPath(e, L), c = ctrl(e);
+      var c1 = { x: e.a.x + (c.x - e.a.x) * p, y: e.a.y + (c.y - e.a.y) * p }, end = qpt(e.a, c, e.b, p);
+      ctx.save();
+      if (!e.main && !on) ctx.setLineDash([1.5, 4]);
+      ctx.beginPath(); ctx.moveTo(e.a.x, e.a.y); ctx.quadraticCurveTo(c1.x, c1.y, end.x, end.y);
+      ctx.strokeStyle = on ? 'rgba(255,222,155,.95)' : e.main ? 'rgba(217,164,65,.45)' : 'rgba(217,164,65,.24)';
+      ctx.lineWidth = on ? 1.5 : e.main ? 0.85 : 0.7;
+      if (on) { ctx.shadowColor = 'rgba(242,196,107,.8)'; ctx.shadowBlur = 8; }
+      ctx.stroke(); ctx.restore();
     });
 
+    // glowing lights travelling along the connections
     pulses.forEach(function (q) {
       var k = (time - q.t0) * q.v; if (k > 1) return;
-      var x = q.e.a.x + (q.e.b.x - q.e.a.x) * k, y = q.e.a.y + (q.e.b.y - q.e.a.y) * k;
-      var g = ctx.createRadialGradient(x, y, 0, x, y, 9);
-      g.addColorStop(0, 'rgba(255,228,160,.95)'); g.addColorStop(1, 'rgba(217,164,65,0)');
-      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(x, y, 9, 0, 6.283); ctx.fill();
+      var pt = qpt(q.e.a, ctrl(q.e), q.e.b, k), fade = Math.sin(k * Math.PI);
+      var g = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, 8);
+      g.addColorStop(0, 'rgba(255,232,170,' + 0.95 * fade + ')'); g.addColorStop(0.35, 'rgba(242,196,107,' + 0.45 * fade + ')'); g.addColorStop(1, 'rgba(217,164,65,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(pt.x, pt.y, 8, 0, 6.283); ctx.fill();
     });
 
+    // glowing dots
     nodes.forEach(function (n) {
       var a = ease((time - n.show) / 0.45);
       if (a <= 0) return;
       var on = L && L.indexOf(n) > -1;
-      var r = [8, 5.5, 5, 3.6][n.ring] * (0.6 + 0.4 * a) * (on ? 1.25 : 1);
-      var gr = r * (on ? 6 : 4);
+      var r = [5, 3.6, 3.6, 2.4][n.ring] * (0.6 + 0.4 * a) * (on ? 1.2 : 1);
+      var gr = n.ring === 0 ? 30 + Math.sin(time * 1.6) * 3 : r * (on ? 6 : 4.2);
       var glow = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, gr);
-      glow.addColorStop(0, 'rgba(242,196,107,' + ((n.ring === 3 ? 0.25 : 0.45) * a) + ')'); glow.addColorStop(1, 'rgba(242,196,107,0)');
+      glow.addColorStop(0, 'rgba(242,196,107,' + ([0.5, 0.42, 0.42, 0.28][n.ring] + (on ? 0.2 : 0)) * a + ')');
+      glow.addColorStop(1, 'rgba(242,196,107,0)');
       ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(n.x, n.y, gr, 0, 6.283); ctx.fill();
-      ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.283);
-      if (n.ring === 1) {                       // skills: hollow rings
+
+      ctx.globalAlpha = a;
+      if (n.ring === 1) {                       // skills: fine hollow rings
+        ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.283);
         ctx.fillStyle = '#0b0907'; ctx.fill();
-        ctx.strokeStyle = on ? '#ffe3a3' : '#f2c46b'; ctx.lineWidth = 1.8; ctx.stroke();
+        ctx.strokeStyle = on ? '#ffe7b0' : '#f2c46b'; ctx.lineWidth = 1.1; ctx.stroke();
       } else {
-        ctx.fillStyle = on ? '#ffe3a3' : ['#f2c46b', '', '#d9a441', '#8a6a2e'][n.ring]; ctx.fill();
+        ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, 6.283);
+        ctx.fillStyle = on ? '#fff0c9' : ['#ffe3a3', '', '#f2c46b', '#c9a15a'][n.ring]; ctx.fill();
+        if (n.ring === 2) {                     // roles: thin halo ring
+          ctx.beginPath(); ctx.arc(n.x, n.y, r + 3.5, 0, 6.283);
+          ctx.strokeStyle = 'rgba(242,196,107,' + (on ? 0.8 : 0.4) + ')'; ctx.lineWidth = 0.6; ctx.stroke();
+        }
       }
-      if (n.ring === 0) {
-        ctx.strokeStyle = 'rgba(242,196,107,.5)'; ctx.lineWidth = 1;
-        ctx.beginPath(); ctx.arc(n.x, n.y, 16 + Math.sin(time * 2) * 2, 0, 6.283); ctx.stroke();
+      if (n.ring === 0) {                       // centre: two fine concentric rings
+        ctx.lineWidth = 0.7;
+        ctx.strokeStyle = 'rgba(242,196,107,.55)'; ctx.beginPath(); ctx.arc(n.x, n.y, 11, 0, 6.283); ctx.stroke();
+        ctx.strokeStyle = 'rgba(242,196,107,.22)'; ctx.beginPath(); ctx.arc(n.x, n.y, 19, 0, 6.283); ctx.stroke();
       }
       ctx.globalAlpha = 1;
 
       if (small && n.ring > 0 && !on) return;     // phones: label the centre and the lit path only
-      var root = n.ring === 0;
-      ctx.font = root ? '600 italic 22px "Cormorant Garamond", Georgia, serif'
-               : n.ring === 1 ? 'italic 500 12.5px Inter, system-ui, sans-serif'
-               : (n.ring === 2 ? '600 12.5px' : '500 11.5px') + ' Inter, system-ui, sans-serif';
-      var tw = ctx.measureText(n.label).width, lx, ly = root ? n.y + 38 : n.y + 4;
+      if (small && n.ring === 0 && L) return;      // phones: the lit path's labels replace the centre name
+      var root = n.ring === 0, text = n.ring === 1 ? n.label.toUpperCase() : n.label;
+      ctx.font = root ? 'italic 500 23px "Cormorant Garamond", Georgia, serif'
+               : n.ring === 1 ? '600 9.5px Inter, system-ui, sans-serif'
+               : n.ring === 2 ? '500 12.5px Inter, system-ui, sans-serif'
+               : '400 11.5px Inter, system-ui, sans-serif';
+      if ('letterSpacing' in ctx) ctx.letterSpacing = n.ring === 1 ? '1.6px' : '0px';
+      var tw = ctx.measureText(text).width, gap = n.ring === 2 ? 12 : 9, lx, ly = root ? n.y + 42 : n.y + 4;
       if (root) lx = n.x - tw / 2;
       else {
-        lx = n.x >= cx ? n.x + 11 : n.x - 11 - tw;
-        if (lx + tw > W - 8) lx = n.x - 11 - tw;
-        if (lx < 8) lx = n.x + 11;
+        lx = n.x >= cx ? n.x + gap : n.x - gap - tw;
+        if (lx + tw > W - 8) lx = n.x - gap - tw;
+        if (lx < 8) lx = n.x + gap;
       }
       if (!on && !root && hits(lx, ly - 12, lx + tw, ly + 4)) {
-        lx = lx < n.x ? n.x + 11 : n.x - 11 - tw;   // try the other side of the node
+        lx = lx < n.x ? n.x + gap : n.x - gap - tw;   // try the other side of the node
         if (lx < 8 || lx + tw > W - 8 || hits(lx, ly - 12, lx + tw, ly + 4)) return;
       }
-      ctx.globalAlpha = a * (root || on ? 1 : [1, 0.75, 0.9, 0.55][n.ring]);
-      ctx.fillStyle = root || on ? '#ffe3a3' : n.ring === 1 ? '#f2c46b' : '#f4ede2';
-      if (on && !root) {                          // dark backing so a lit label stays readable
-        ctx.globalAlpha = 0.75; ctx.fillStyle = '#0b0907';
-        ctx.fillRect(lx - 4, ly - 13, tw + 8, 18);
-        ctx.globalAlpha = 1; ctx.fillStyle = '#ffe3a3';
-      }
-      ctx.fillText(n.label, lx, ly);
-      ctx.globalAlpha = 1;
+      ctx.save();
+      ctx.globalAlpha = a * (root || on ? 1 : [1, 0.9, 0.92, 0.6][n.ring]);
+      ctx.fillStyle = root || on ? '#ffe7b0' : n.ring === 1 ? '#e2b45c' : n.ring === 2 ? '#f1e8da' : '#bfb2a0';
+      ctx.shadowColor = 'rgba(11,9,7,.95)'; ctx.shadowBlur = on ? 10 : 6;   // keeps text crisp over lines
+      ctx.fillText(text, lx, ly);
+      ctx.restore();
     });
+    if ('letterSpacing' in ctx) ctx.letterSpacing = '0px';
   }
 
   var clock = 0, last = null, running = false, visible = true;
@@ -976,9 +1008,9 @@
     if (!running) return;
     if (last !== null) clock += Math.min(0.05, (ts - last) / 1000);
     last = ts;
-    if (Math.random() < 0.08) {
-      var ready = edges.filter(function (e) { return clock > e.start + GROW; });
-      if (ready.length) pulses.push({ e: ready[Math.floor(Math.random() * ready.length)], t0: clock, v: 0.5 + Math.random() * 0.5 });
+    if (Math.random() < 0.05) {
+      var ready = edges.filter(function (e) { return e.main && clock > e.start + GROW; });
+      if (ready.length) pulses.push({ e: ready[Math.floor(Math.random() * ready.length)], t0: clock, v: 0.35 + Math.random() * 0.3 });
     }
     pulses = pulses.filter(function (q) { return (clock - q.t0) * q.v <= 1; });
     if (!hover && clock > nextHi) {
