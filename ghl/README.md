@@ -25,7 +25,8 @@ The **career assessment** and **support** pages stay in the original dark style.
 
 ## Hero: The Career Intelligence Map
 The hero follows the Career Intelligence Map mockup:
-- A darkened, softly blurred lounge photo behind everything (swap it at `--backdrop` near the end of the style blocks; a copy is in `images/hero-backdrop.jpg`).
+- Your desk photo (gold-lit wall, vase, city window, marble desk with the V notebook and coffee) runs full width along the bottom of the hero and fades into the dark wall above it. Swap it at `--backdrop` near the end of the style blocks; a copy is in `images/hero-backdrop.jpg`.
+- Fonts: the headline is Cormorant Garamond Italic, weight 400. Navigation and body text are Inter 400–500. Small uppercase labels are Inter 600 with 3px letter spacing.
 - Logo lockup: laurel V, VICTORY SOCIETY and "by Victory Institute", with a thin gold divider before the menu.
 - Centered header: "THE CAREER INTELLIGENCE MAP" between two gold lines, the italic headline "From Your Experience to Real Opportunities", and the intro line.
 - A glowing gold-edged glass panel with four columns: **Your Experience** (clickable; the selected one is gold) → **Transferable Skills** (dark pills with icons) → **Claims Roles** (cream pills with icons) → **Expanded Opportunities** (dark outlined pills).
