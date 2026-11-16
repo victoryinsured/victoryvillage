@@ -33,6 +33,7 @@ The hero follows the Career Intelligence Map mockup:
 - Gold lines gather into a glowing junction between columns and fan back out; dotted gold lines run to the expanded opportunities. Small gold dots travel along the lines. Hovering any pill lights up its whole route.
 - Under the panel, the **Explore Your Career Path — $47/month** button (Stripe link) and the fine print.
 - The headline stays on one line, and the hero is sized to the screen height so the menu, headline, map and button fill the screen when the page opens, and the icon strip starts just below the bottom edge (checked down to a 1280×720 laptop screen).
+- A soft white and blush wash sits over the photo (behind the text and map) to lighten the hero. Adjust it in the `BLUSH LIGHT` style block: raise the numbers like `.30` and `.26` to make it lighter, lower them to make it darker.
 - Until someone clicks, the map cycles through all five backgrounds. On phones the columns become rows; below laptop width the menu collapses into the menu button.
 
 To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`.
