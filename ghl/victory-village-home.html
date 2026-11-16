@@ -397,65 +397,73 @@
      where it can lead) joined by curved lines. Built by the last script.
      ====================================================================== */
   #vv .map-card {
-    --m-bg: #fbf6ee; --m-ink: #22190f; --m-muted: #7a6c5c;
-    --m-burg: #5a1517; --m-green: #2e7d55; --m-tan: #c19a74;
-    position: absolute; z-index: 3; top: 118px; right: clamp(16px, 3.4vw, 56px); width: min(740px, calc(100% - 640px));
-    background: var(--m-bg); color: var(--m-ink); border-radius: 16px; padding: 22px 22px 16px;
-    box-shadow: 0 30px 80px rgba(0,0,0,.45), 0 0 0 1px rgba(255,255,255,.6) inset;
+    position: absolute; z-index: 3; top: 150px; right: clamp(16px, 3.4vw, 56px); width: min(760px, calc(100% - 640px));
+    color: #f4ede2; padding: 0;
   }
   #vv .hero .hero-copy { max-width: 560px; }
-  #vv .map-eyebrow { font: 600 10px var(--sans); letter-spacing: .22em; text-transform: uppercase; color: #8a2a22; }
-  #vv .map-title { font-family: var(--serif); font-weight: 600; font-size: 25px; color: var(--m-ink); margin: 4px 0 2px; }
-  #vv .map-sub { font-size: 12.5px; color: var(--m-muted); }
-  #vv .map-cols { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 132px)); justify-content: space-between; gap: 34px; min-height: 380px; margin-top: 14px; padding: 14px; border-radius: 12px;
-    background: radial-gradient(ellipse at 60% 40%, #fffaf2, #f7efe2); }
+  #vv .map-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 0 4px 14px; }
+  #vv .map-eyebrow { font: 600 11px var(--sans); letter-spacing: .28em; text-transform: uppercase; color: var(--gold); }
+  #vv .map-title { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+  #vv .map-sub { font-size: 12.5px; color: #9d917f; }
+  #vv .map-cols {
+    position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 136px)); justify-content: space-between; gap: 34px;
+    min-height: 400px; padding: 22px 24px; border-radius: 14px;
+    background: linear-gradient(180deg, rgba(30,22,15,.72), rgba(16,12,8,.72));
+    border: 1px solid rgba(217,164,65,.22);
+    box-shadow: 0 30px 70px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,231,176,.06);
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
   #vv .map-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
   #vv .map-col { position: relative; display: flex; flex-direction: column; min-width: 0; }
-  #vv .col-label { font: 600 9px var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--m-muted); margin-bottom: 10px; min-height: 22px; }
-  #vv .col-nodes { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 9px; }
+  #vv .col-label { font: 600 9px var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--gold); opacity: .85; margin-bottom: 14px; min-height: 24px; line-height: 1.4; }
+  #vv .col-nodes { flex: 1; display: flex; flex-direction: column; justify-content: space-around; gap: 10px; }
   #vv .mnode {
-    position: relative; z-index: 1; display: block; width: 100%; text-align: center; font: 600 10.5px/1.25 var(--sans);
+    position: relative; z-index: 1; display: block; width: 100%; text-align: center; font: 500 11px/1.3 var(--sans); letter-spacing: .01em;
     padding: 8px 10px; border-radius: 999px; border: 1px solid; cursor: default;
-    transition: opacity .3s, box-shadow .3s, transform .3s; animation: vv-node-in .5s both;
+    transition: opacity .3s, box-shadow .3s, background .3s, color .3s; animation: vv-node-in .5s both;
   }
   @keyframes vv-node-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-  #vv .mnode.bg { background: var(--m-burg); border-color: var(--m-burg); color: #fff3e6; cursor: pointer; opacity: .5; font-size: 11px; }
-  #vv .mnode.bg:hover { opacity: .8; }
-  #vv .mnode.bg[aria-pressed="true"] { opacity: 1; box-shadow: 0 0 0 2px #f2c46b, 0 6px 18px rgba(90,21,23,.35); }
-  #vv .mnode.bg:focus-visible { outline: 2px solid #b07a22; outline-offset: 3px; }
-  #vv .mnode.skill { background: #e6f2ea; border-color: #a9d3b9; color: #1f4d33; }
-  #vv .mnode.role  { background: #fdebd3; border-color: #e5c08f; color: #5a3a12; }
-  #vv .mnode.grow  { background: #f9e5e4; border-color: #e6b9b6; color: #6b2a2a; font-weight: 500; }
-  #vv .mnode.skill, #vv .mnode.role, #vv .mnode.grow { box-shadow: 0 2px 6px rgba(90,60,20,.08); }
-  #vv .map-cols.tracing .mnode:not(.bg):not(.on) { opacity: .28; }
-  #vv .mnode.on { box-shadow: 0 0 0 2px rgba(242,196,107,.9), 0 6px 16px rgba(176,122,34,.25); }
+  /* where you're coming from: burgundy, selected one turns gold */
+  #vv .mnode.bg { background: #3a0d0e; border-color: rgba(217,164,65,.28); color: #e9dccb; cursor: pointer; font-weight: 600; }
+  #vv .mnode.bg:hover { border-color: rgba(242,196,107,.7); }
+  #vv .mnode.bg[aria-pressed="true"] { background: linear-gradient(180deg, #ffe3a3, #d9a441); border-color: #ffd98a; color: #1a1208; box-shadow: 0 0 22px rgba(242,196,107,.35); }
+  #vv .mnode.bg:focus-visible { outline: 1px solid #f2c46b; outline-offset: 3px; }
+  /* skills: gold outline */
+  #vv .mnode.skill { background: rgba(217,164,65,.06); border-color: rgba(242,196,107,.55); color: #f2c46b; }
+  /* claims roles: the destination, solid cream */
+  #vv .mnode.role { background: #f3e7d3; border-color: #f3e7d3; color: #2a1d10; font-weight: 600; }
+  /* where it can lead: quiet outline */
+  #vv .mnode.grow { background: transparent; border-color: rgba(233,220,203,.22); color: #b9ad9c; }
+  #vv .map-cols.tracing .mnode:not(.bg):not(.on) { opacity: .25; }
+  #vv .mnode.on { box-shadow: 0 0 0 1px #f2c46b, 0 0 20px rgba(242,196,107,.4); }
+  #vv .mnode.grow.on { color: #f4ede2; border-color: rgba(242,196,107,.7); }
   #vv .map-lines path { fill: none; transition: opacity .3s, stroke-width .3s; }
-  #vv .map-lines path.green { stroke: var(--m-green); stroke-width: 1.5; }
-  #vv .map-lines path.tan { stroke: var(--m-tan); stroke-width: 1.2; opacity: .85; }
-  #vv .map-lines path.dash { stroke: var(--m-tan); stroke-width: 1; stroke-dasharray: 3 4; opacity: .8; }
+  #vv .map-lines path.green { stroke: #d9a441; stroke-width: 1.3; opacity: .75; }
+  #vv .map-lines path.tan { stroke: #e9dccb; stroke-width: .9; opacity: .32; }
+  #vv .map-lines path.dash { stroke: #d9a441; stroke-width: .9; stroke-dasharray: 2 4; opacity: .45; }
   #vv .map-lines path.draw { stroke-dasharray: 1; stroke-dashoffset: 1; animation: vv-draw .9s ease-out forwards; }
   @keyframes vv-draw { to { stroke-dashoffset: 0; } }
-  #vv .map-cols.tracing .map-lines path:not(.on) { opacity: .12; }
-  #vv .map-lines path.on { stroke-width: 2.2; opacity: 1; }
-  #vv .map-lines .dot { fill: #f2c46b; filter: drop-shadow(0 0 3px rgba(242,196,107,.95)); }
-  #vv .map-legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 12px; font-size: 11px; color: var(--m-muted); }
-  #vv .map-legend span { display: inline-flex; align-items: center; gap: 7px; }
-  #vv .lg-line { width: 22px; height: 0; border-top: 1.6px solid; display: inline-block; }
-  #vv .lg-line.green { border-color: #2e7d55; } #vv .lg-line.tan { border-color: #c19a74; } #vv .lg-line.dash { border-top: 1.4px dashed #c19a74; }
+  #vv .map-cols.tracing .map-lines path:not(.on) { opacity: .07; }
+  #vv .map-lines path.on { stroke: #f2c46b; stroke-width: 1.8; opacity: 1; }
+  #vv .map-lines .dot { fill: #ffe3a3; filter: drop-shadow(0 0 4px rgba(242,196,107,1)); }
+  #vv .map-legend { display: flex; flex-wrap: wrap; gap: 6px 26px; padding: 14px 4px 0; font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: #8f8372; }
+  #vv .map-legend span { display: inline-flex; align-items: center; gap: 9px; }
+  #vv .lg-line { width: 22px; height: 0; border-top: 1.4px solid; display: inline-block; }
+  #vv .lg-line.green { border-color: #d9a441; } #vv .lg-line.tan { border-color: rgba(233,220,203,.5); } #vv .lg-line.dash { border-top: 1.2px dashed #d9a441; }
   @media (prefers-reduced-motion: reduce) { #vv .mnode, #vv .map-lines path.draw { animation: none; stroke-dashoffset: 0; } #vv .map-lines .dot { display: none; } }
 
   /* below 1200px the map sits under the headline */
   @media (max-width: 1199px) {
     #vv .hero { min-height: 0; }
     #vv .hero .hero-inner { padding-top: 150px; }
-    #vv .map-card { position: relative; top: auto; right: auto; width: auto; margin: 44px clamp(16px, 4vw, 64px) 0; }
+    #vv .map-card { position: relative; top: auto; right: auto; width: auto; margin: 52px clamp(16px, 4vw, 64px) 8px; }
   }
   @media (max-width: 900px) { #vv .hero .hero-inner { padding-top: 130px; } }
   /* phones: columns become rows */
   @media (max-width: 700px) {
-    #vv .map-card { padding: 18px 12px 14px; margin: 36px 12px 0; }
-    #vv .map-title { font-size: 21px; }
-    #vv .map-cols { grid-template-columns: 1fr; gap: 26px; padding: 12px 10px; min-height: 0; }
+    #vv .map-card { margin: 40px 16px 8px; }
+    #vv .map-head { flex-direction: column; gap: 4px; }
+    #vv .map-cols { grid-template-columns: 1fr; gap: 26px; padding: 18px 12px; min-height: 0; }
     #vv .col-label { min-height: 0; margin-bottom: 8px; text-align: center; }
     #vv .col-nodes { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 7px; }
     #vv .mnode { width: auto; max-width: 48%; font-size: 10px; padding: 7px 10px; }
@@ -526,7 +534,7 @@
       <div class="map-head">
         <div class="map-eyebrow">Career Map</div>
         <h2 class="map-title" id="vv-map-title">See where your experience can go</h2>
-        <p class="map-sub">Pick where you&rsquo;re coming from. Hover any skill or role to trace the route.</p>
+        <p class="map-sub">Pick where you&rsquo;re coming from, then hover a role to trace the route.</p>
       </div>
       <div class="map-cols" id="vv-map-cols">
         <svg class="map-lines" id="vv-map-lines" aria-hidden="true"></svg>
@@ -536,9 +544,9 @@
         <div class="map-col"><div class="col-label">Where it can lead</div><div class="col-nodes" id="vv-col-grow"></div></div>
       </div>
       <div class="map-legend" aria-hidden="true">
-        <span><i class="lg-line green"></i>You already have this skill</span>
-        <span><i class="lg-line tan"></i>Skill used in this role</span>
-        <span><i class="lg-line dash"></i>Where the role can lead</span>
+        <span><i class="lg-line green"></i>Skills you have</span>
+        <span><i class="lg-line tan"></i>Used in this role</span>
+        <span><i class="lg-line dash"></i>Where it leads</span>
       </div>
       <p class="sr-only" id="vv-web-text" aria-live="polite"></p>
     </section>

@@ -24,10 +24,10 @@ The **career assessment** and **support** pages stay in the original dark style.
 6. Preview on desktop and mobile, then publish.
 
 ## Hero career map
-The hero shows a **Career Map** card, laid out in four columns joined by curved lines:
-**Where you're coming from** (burgundy) → **Skills you already have** (green) → **Claims roles you fit** (peach) → **Where it can lead** (pink).
+The hero shows a **Career Map** that sits right on the dark hero, inside a dark glass panel with a fine gold border, in four columns joined by curved lines:
+**Where you're coming from** (burgundy; the selected one turns gold) → **Skills you already have** (gold outline) → **Claims roles you fit** (solid cream) → **Where it can lead** (quiet outline).
 - Clicking a background in the left column rebuilds the map. Until someone clicks, it cycles through all five backgrounds.
-- Solid green lines: skills the background gives you. Solid tan lines: which skills each role uses. Dashed lines: where each role can lead.
+- Gold lines: skills the background gives you. Thin cream lines: which skills each role uses. Dashed gold lines: where each role can lead.
 - Hovering (or tapping) any pill lights up its whole route and fades everything else. Small gold dots travel along the solid lines.
 - Below 1200px wide the card sits under the headline; on phones the columns become rows.
 - No outside library is needed; it's plain HTML, CSS and SVG.
