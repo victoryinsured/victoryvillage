@@ -67,7 +67,7 @@ Set it up the same way as the home page (full-width section, Custom JS/HTML elem
 
 **Links to set** (search `victory-village-support.html` for `LINK:`). These are placeholders until you send the real ones:
 - **Open a Ticket:** `https://thevictoryvillage.com/support-ticket`. Point it at a GHL form or survey page.
-- **Schedule:** `https://thevictoryvillage.com/book-support-call`. Point it at your GHL booking calendar.
+- **Schedule:** scrolls to the **Book a Support Call** panel, which holds your GHL booking calendar embed (widget `BWLUOaYsIjb80FvxDmVh`). A backup link opens the booking page directly if the calendar doesn't load.
 - **Email Us / General Inquiries:** `support@thevictoryvillage.com`. Replace it with your real support email.
 - **Start Chat / Chat with Us:** opens the GHL chat widget if it's installed on the page (Sites → Chat Widget). If it isn't, the buttons fall back to the support email.
 
