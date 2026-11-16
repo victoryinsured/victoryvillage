@@ -32,6 +32,7 @@ The hero follows the Career Intelligence Map mockup:
 - A glowing gold-edged glass panel with four columns: **Your Experience** (clickable; the selected one is gold) → **Transferable Skills** (dark pills with icons) → **Claims Roles** (cream pills with icons) → **Expanded Opportunities** (dark outlined pills).
 - Gold lines gather into a glowing junction between columns and fan back out; dotted gold lines run to the expanded opportunities. Small gold dots travel along the lines. Hovering any pill lights up its whole route.
 - Under the panel, the **Explore Your Career Path — $47/month** button (Stripe link) and the fine print.
+- The headline stays on one line, and the hero is sized to the screen height so the menu, headline, map and button are all visible before scrolling (checked down to a 1280×720 laptop screen).
 - Until someone clicks, the map cycles through all five backgrounds. On phones the columns become rows; below laptop width the menu collapses into the menu button.
 
 To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`.
