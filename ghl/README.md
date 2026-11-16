@@ -23,15 +23,16 @@ The **career assessment** and **support** pages stay in the original dark style.
 5. In **Settings → SEO / Page settings**, set the page background to `#0b0907` so no white strip shows at the edges.
 6. Preview on desktop and mobile, then publish.
 
-## Hero career web (force-graph)
-The career web is built with **force-graph**, an open-source network library (github.com/vasturiano/force-graph, loaded from cdn.jsdelivr.net, version 1.51.5). It uses real physics, so the web settles into a natural shape instead of a perfect pattern.
-- Tabs: Banker, Nurse, Customer Service, Warehouse Worker, Government Worker. Picking one grows the web out of that job, ring by ring: **skills they already have** (hollow rings), **claims roles those skills fit** (bright dots), **where it can lead** (small dots).
-- Gold lights flow along the connections. Every few seconds one path lights up from the centre out to a senior role.
-- Visitors can **drag the dots** on desktop; hovering or tapping a dot lights its path back to the centre.
-- Until someone interacts, the web cycles through all five backgrounds. On phones, only the centre and the lit path are labelled.
-- Screen readers get a text version of the selected web. Visitors set to reduce motion see the web without flowing lights.
+## Hero career map
+The hero shows a **Career Map** card, laid out in four columns joined by curved lines:
+**Where you're coming from** (burgundy) → **Skills you already have** (green) → **Claims roles you fit** (peach) → **Where it can lead** (pink).
+- Clicking a background in the left column rebuilds the map. Until someone clicks, it cycles through all five backgrounds.
+- Solid green lines: skills the background gives you. Solid tan lines: which skills each role uses. Dashed lines: where each role can lead.
+- Hovering (or tapping) any pill lights up its whole route and fades everything else. Small gold dots travel along the solid lines.
+- Below 1200px wide the card sits under the headline; on phones the columns become rows.
+- No outside library is needed; it's plain HTML, CSS and SVG.
 
-To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html`: `skills` is the first ring, `roles` the second, `grow` the outer ring. To add a background, add an entry to `WEBS`, add its key to `ORDER`, and add a matching `<button class="web-tab" data-bg="...">` in the hero.
+To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`; its button appears automatically.
 
 ## Images
 Your Career Match photo is **built into the page**, so it shows up as soon as you paste it. You don't need Drive links or sharing settings.
