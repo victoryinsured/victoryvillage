@@ -452,18 +452,40 @@
   #vv .lg-line.green { border-color: #d9a441; } #vv .lg-line.tan { border-color: rgba(233,220,203,.5); } #vv .lg-line.dash { border-top: 1.2px dashed #d9a441; }
   @media (prefers-reduced-motion: reduce) { #vv .mnode, #vv .map-lines path.draw { animation: none; stroke-dashoffset: 0; } #vv .map-lines .dot { display: none; } }
 
+  /* CENTERED HERO: headline on top, career map below, buy button under the map */
+  #vv .hero { min-height: 0; justify-content: flex-start; }
+  #vv .hero::before { background: radial-gradient(ellipse 70% 55% at 50% 30%, rgba(11,9,7,.35), rgba(11,9,7,0) 70%), linear-gradient(0deg, rgba(11,9,7,.85) 0%, rgba(11,9,7,0) 18%); }
+  #vv .hero .hero-inner { padding-top: 150px; text-align: center; }
+  #vv .hero .hero-copy { max-width: 900px; margin: 0 auto; }
+  #vv .hero h1 { font-size: clamp(38px, 4.6vw, 64px); margin: 16px 0 18px; text-wrap: balance; }
+  #vv .hero p.lead { max-width: 640px; margin: 0 auto; }
+  #vv .map-card { position: relative; top: auto; right: auto; width: auto; max-width: 1040px; margin: 48px auto 0; padding: 0 clamp(16px, 4vw, 64px); box-sizing: content-box; }
+  #vv .map-head { justify-content: center; flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+  #vv .map-cols { grid-template-columns: repeat(4, minmax(0, 168px)); min-height: 420px; padding: 26px 34px; }
+  #vv .map-legend { justify-content: center; }
+  #vv .hero-cta { position: relative; z-index: 3; text-align: center; padding: 40px 16px 64px; }
+  #vv .hero-cta .fineprint { margin-top: 14px; }
+  #vv .hero .perks { margin-top: 0; }
+  #vv .hero-cta { padding-bottom: 48px; }
+
   /* below 1200px the map sits under the headline */
   @media (max-width: 1199px) {
     #vv .hero { min-height: 0; }
-    #vv .hero .hero-inner { padding-top: 150px; }
-    #vv .map-card { position: relative; top: auto; right: auto; width: auto; margin: 52px clamp(16px, 4vw, 64px) 8px; }
   }
-  @media (max-width: 900px) { #vv .hero .hero-inner { padding-top: 130px; } }
+  /* the full menu only fits on laptop screens; below that use the menu button */
+  #vv .nav-cta .btn { white-space: nowrap; }
+  @media (max-width: 1180px) {
+    #vv .nav-links, #vv .nav-cta { display: none; }
+    #vv .menu-btn { display: block; }
+    #vv .nav.open .nav-links, #vv .nav.open .nav-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; margin-left: 0; }
+    #vv .nav.open .wrap { flex-wrap: wrap; background: rgba(11,9,7,.97); padding: 20px 24px; border: 1px solid var(--line); border-radius: 8px; }
+  }
+  @media (max-width: 900px) { #vv .hero .hero-inner { padding-top: 130px; } #vv .map-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 22px 18px; } }
   /* phones: columns become rows */
   @media (max-width: 700px) {
-    #vv .map-card { margin: 40px 16px 8px; }
+    #vv .map-card { margin: 36px 0 0; padding: 0 16px; }
     #vv .map-head { flex-direction: column; gap: 4px; }
-    #vv .map-cols { grid-template-columns: 1fr; gap: 26px; padding: 18px 12px; min-height: 0; }
+    #vv .map-cols { grid-template-columns: 1fr !important; gap: 26px; padding: 18px 12px !important; min-height: 0; }
     #vv .col-label { min-height: 0; margin-bottom: 8px; text-align: center; }
     #vv .col-nodes { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 7px; }
     #vv .mnode { width: auto; max-width: 48%; font-size: 10px; padding: 7px 10px; }
@@ -521,11 +543,8 @@
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <div class="eyebrow">Victory Society</div>
-        <h1>Your Experience<br>Has Value.<br><span class="gold">Now Let&rsquo;s Turn It<br>Into Opportunity.</span></h1>
+        <h1>Your Experience Has Value.<br><span class="gold">Now Let&rsquo;s Turn It<br>Into Opportunity.</span></h1>
         <p class="lead">Join a private community with AI-powered career guidance, real job opportunities, expert support, and the tools you need to break into and grow in the claims industry.</p>
-        <!-- LINK: join -->
-        <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Victory Toolkit &mdash; $47/month <span class="arrow">&rarr;</span></a>
-        <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="https://thevictoryvillage.com/membership" style="color:var(--gold);text-decoration:underline">See Victory Society Pro</a></p>
       </div>
     </div>
 
@@ -550,6 +569,12 @@
       </div>
       <p class="sr-only" id="vv-web-text" aria-live="polite"></p>
     </section>
+
+    <div class="hero-cta">
+      <!-- LINK: join -->
+      <a class="btn" href="https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01">Get the Victory Toolkit &mdash; $47/month <span class="arrow">&rarr;</span></a>
+      <p class="fineprint">Cancel anytime &nbsp;|&nbsp; Want the community too? <a href="https://thevictoryvillage.com/membership" style="color:var(--gold);text-decoration:underline">See Victory Society Pro</a></p>
+    </div>
 
     <div class="perks">
       <div class="wrap">

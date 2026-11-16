@@ -24,12 +24,13 @@ The **career assessment** and **support** pages stay in the original dark style.
 6. Preview on desktop and mobile, then publish.
 
 ## Hero career map
+The hero is centered: the headline and intro at the top, the Career Map below it, and the **Get the Victory Toolkit** button under the map.
 The hero shows a **Career Map** that sits right on the dark hero, inside a dark glass panel with a fine gold border, in four columns joined by curved lines:
 **Where you're coming from** (burgundy; the selected one turns gold) → **Skills you already have** (gold outline) → **Claims roles you fit** (solid cream) → **Where it can lead** (quiet outline).
 - Clicking a background in the left column rebuilds the map. Until someone clicks, it cycles through all five backgrounds.
 - Gold lines: skills the background gives you. Thin cream lines: which skills each role uses. Dashed gold lines: where each role can lead.
 - Hovering (or tapping) any pill lights up its whole route and fades everything else. Small gold dots travel along the solid lines.
-- Below 1200px wide the card sits under the headline; on phones the columns become rows.
+- On phones the columns become rows. Below laptop width the top menu collapses into the menu button.
 - No outside library is needed; it's plain HTML, CSS and SVG.
 
 To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`; its button appears automatically.
