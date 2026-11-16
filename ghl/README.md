@@ -23,17 +23,17 @@ The **career assessment** and **support** pages stay in the original dark style.
 5. In **Settings → SEO / Page settings**, set the page background to `#0b0907` so no white strip shows at the edges.
 6. Preview on desktop and mobile, then publish.
 
-## Hero career map
-The hero is centered: the headline and intro at the top, the Career Map below it, and the **Get the Victory Toolkit** button under the map.
-The hero shows a **Career Map** that sits right on the dark hero, inside a dark glass panel with a fine gold border, in four columns joined by curved lines:
-**Where you're coming from** (burgundy; the selected one turns gold) → **Skills you already have** (gold outline) → **Claims roles you fit** (solid cream) → **Where it can lead** (quiet outline).
-- Clicking a background in the left column rebuilds the map. Until someone clicks, it cycles through all five backgrounds.
-- Gold lines: skills the background gives you. Thin cream lines: which skills each role uses. Dashed gold lines: where each role can lead.
-- Hovering (or tapping) any pill lights up its whole route and fades everything else. Small gold dots travel along the solid lines.
-- On phones the columns become rows. Below laptop width the top menu collapses into the menu button.
-- No outside library is needed; it's plain HTML, CSS and SVG.
+## Hero: The Career Intelligence Map
+The hero follows the Career Intelligence Map mockup:
+- A darkened, softly blurred lounge photo behind everything (swap it at `--backdrop` near the end of the style blocks; a copy is in `images/hero-backdrop.jpg`).
+- Logo lockup: laurel V, VICTORY SOCIETY and "by Victory Institute", with a thin gold divider before the menu.
+- Centered header: "THE CAREER INTELLIGENCE MAP" between two gold lines, the italic headline "From Your Experience to Real Opportunities", and the intro line.
+- A glowing gold-edged glass panel with four columns: **Your Experience** (clickable; the selected one is gold) → **Transferable Skills** (dark pills with icons) → **Claims Roles** (cream pills with icons) → **Expanded Opportunities** (dark outlined pills).
+- Gold lines gather into a glowing junction between columns and fan back out; dotted gold lines run to the expanded opportunities. Small gold dots travel along the lines. Hovering any pill lights up its whole route.
+- Under the panel, the **Explore Your Career Path — $47/month** button (Stripe link) and the fine print.
+- Until someone clicks, the map cycles through all five backgrounds. On phones the columns become rows; below laptop width the menu collapses into the menu button.
 
-To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`; its button appears automatically.
+To change a background or its roles, edit `WEBS` in the last `<script>` of `victory-village-home.html` (`skills`, `roles`, `grow`). To add a background, add an entry to `WEBS` and its key to `ORDER`.
 
 ## Images
 Your Career Match photo is **built into the page**, so it shows up as soon as you paste it. You don't need Drive links or sharing settings.
