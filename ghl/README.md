@@ -54,7 +54,7 @@ The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on 
 |---|---|---|
 | Victory Toolkit (job-hunting tools only) | $47/month | `https://buy.stripe.com/8x28wO80u6Hl6s2f9AdMI01` (membership page, plus the home page hero and closing buttons) |
 | Victory Society Pro (Toolkit + community, workshops, co-working, deeper analysis) | $97/month | placeholder `https://checkout.thevictoryvillage.com` |
-| 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | placeholder `https://checkout.thevictoryvillage.com` (pricing card and the four "Book this session" links) |
+| 1:1 Strategy Session | $100 one-time add-on, 10 per quarter | "Claim a Session" and the four "Book this session" links scroll to the **Book Your Strategy Session** panel on the membership page, which holds the GHL booking calendar (widget `BWLUOaYsIjb80FvxDmVh`) |
 | Career assessment | | placeholder: "Try the Career Assessment" on the home page still goes to `https://checkout.thevictoryvillage.com` until you send the assessment link |
 
 Search each file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
