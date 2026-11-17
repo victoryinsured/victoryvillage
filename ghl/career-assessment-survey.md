@@ -1,4 +1,25 @@
-# Victory Society Career Assessment: GoHighLevel survey setup
+# Victory Society Career Assessment
+
+> **Using the built assessment page (recommended):** `victory-village-assessment.html` already contains the questions, the email step, the Career Lane logic and the on-screen results. In GHL you only need the webhook workflow and the emails. Follow **"Quick setup for the assessment page"** right below, then use Part 3 and Part 4 for the email wording. Parts 1 and 2 are only needed if you build the survey inside GHL instead.
+
+## Quick setup for the assessment page (about 10 minutes)
+
+1. **Make the page.** In GHL, create a page at `/assessment`. Add a full-width section with 0 padding, drop in a **Custom JS/HTML** element, paste in all of `victory-village-assessment.html`, and set the page background to `#0b0907`.
+2. **Make the workflow.** Go to **Automation → Workflows → Create workflow → Start from scratch**. Add the trigger **Inbound Webhook**. GHL shows you a URL; copy it.
+3. **Connect the page.** In the page code, find `var WEBHOOK_URL = '';` and paste the URL between the quotes. Save and publish the page.
+4. **Send one test.** Open the live page, take the assessment with your own email, then go back to the workflow trigger and click **Fetch sample request**. GHL now shows every field the page sends.
+5. **Add these workflow actions:**
+   - **Create/Update Contact:** map `first_name`, `last_name`, `email` and `phone` from the webhook. Map `career_lane` to a custom field called "Career Lane" (create it under Settings → Custom Fields). Map any answers you want to keep, such as `field`, `license`, `obstacle` and `salary_goal`.
+   - **Add Tag:** add the tags from the webhook: `lane_tag`, `readiness_tag` and `assessment-complete`.
+   - **If/Else on `readiness`:** if it's `ready`, send the results email with the Strategy Session closing; otherwise send it with the Toolkit closing. Use `{{contact.career_lane}}` in the email, or make one email per lane using the lane tag.
+   - **Wait 2 days → Send email:** the follow-up from Part 4, only to contacts without a purchase tag.
+6. **Test three times** with different answers (for example a nurse, a warehouse worker who wants field work, and a customer service rep who wants a desk job) and check each contact gets the right tags and email.
+
+**What the page sends to GHL:** `first_name`, `last_name`, `email`, `phone`, `career_lane`, `lane_tag`, `readiness` (`ready` or `starting`), `readiness_tag`, `tags`, `field`, `years`, `claims_experience`, `license`, `strengths`, `work_style`, `travel`, `timeline`, `obstacle`, `salary_goal`, `source`, `submitted_at`, `page`.
+
+---
+
+# Building it as a GHL survey instead (optional)
 
 **Name in GHL:** Victory Career Assessment
 **Where it's used:** the "Try the Career Assessment" button on the sales page (send the survey link once it's built and it gets wired in).

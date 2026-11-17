@@ -5,6 +5,7 @@
 | `victory-village-home.html` | Home / career assessment page | `/` |
 | `victory-village-membership.html` | Membership page (plans, compare, strategy sessions) | `/membership` |
 | `victory-village-support.html` | Customer support page | `/support` |
+| `victory-village-assessment.html` | Career Assessment (10 questions, email step, Career Lane results) | `/assessment` |
 
 The pages link to each other through `https://thevictoryvillage.com/membership` and `https://thevictoryvillage.com/support`. If you publish a page at a different path, search all three files for `/membership"` or `/support"` and update it.
 
@@ -78,3 +79,8 @@ Set it up the same way as the home page (full-width section, Custom JS/HTML elem
 - FAQ questions open and close when clicked. Edit the answers in the `<details>` blocks.
 
 **Images:** every photo slot is listed at the bottom of the `<style>` block (search `IMAGE:`): the hero background, the "Still Need Help?" background, and the four Help Center cards. Until you send photos, each slot shows a matching gold/black placeholder.
+
+## Career Assessment page
+`victory-village-assessment.html` is a 10-question assessment in the same style as the sales hero. Visitors answer one question per screen, enter their name and email, and see their **Career Lane**, the claims roles to target, the skills they bring, where it can lead, and the right offer (the $47 Toolkit for people just starting, a $100 Strategy Session for people with claims experience, a license, or interview trouble).
+
+Every finished assessment is sent to GoHighLevel through an Inbound Webhook. Paste the webhook URL into `var WEBHOOK_URL = '';` near the top of the script. Full GHL steps are in `career-assessment-survey.md` under "Quick setup for the assessment page". The "Try the Career Assessment" button on the sales page links to `/assessment`.
