@@ -12,7 +12,7 @@ The pages link to each other through `https://thevictoryvillage.com/membership` 
 `victory-village-home.html` is the whole page in one file: styles, content and a little script.
 
 ## Light membership page
-The **membership page** is light from top to bottom: ivory and white backgrounds, dark text and gold accents, with only the footer dark. In the hero, the menu sits on its own ivory strip and the lounge photo fades into ivory on the left, where the headline is. The light colors live in the `LIGHT SECTIONS` style block near the top of that file; any section with `class="light"` uses them.
+The **membership page** used to be light; it now matches the dark sales page. (Old note:) The membership page was light from top to bottom: ivory and white backgrounds, dark text and gold accents, with only the footer dark. In the hero, the menu sits on its own ivory strip and the lounge photo fades into ivory on the left, where the headline is. The light colors live in the `LIGHT SECTIONS` style block near the top of that file; any section with `class="light"` uses them.
 
 The **career assessment** and **support** pages stay in the original dark style.
 
@@ -61,7 +61,7 @@ The plans, the Toolkit-vs-Pro comparison and the four Strategy Sessions live on 
 Search each file for `LINK:` to find every button. **Log In** goes to `https://portal.thevictoryvillage.com`.
 
 ## Membership page
-Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero with your Victory Society Membership lounge photo (on desktop it fills the right of the hero at its true shape and fades softly into black on the left, where the headline sits; on phones the whole photo shows under the menu with the headline below; to swap it, replace the `src` of the image marked `IMAGE:` in the hero), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
+Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero that matches the sales page (desk photo with the blush light, a menu with only Log In and Join Victory Society, the italic headline, and a glowing panel with the three offers), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
 
 ## Support page
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
