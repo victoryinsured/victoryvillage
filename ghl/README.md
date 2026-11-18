@@ -25,6 +25,8 @@ The **career assessment** and **support** pages stay in the original dark style.
 6. Preview on desktop and mobile, then publish.
 
 ## Hero: The Career Intelligence Map
+**Latest header:** "CLAIMS CAREER INTELLIGENCE", the headline "Discover How Your Experience Could Lead to a *Career in Claims.*", the intro, and two buttons: **Discover My Claims Career Path** (goes to `/assessment`) and **Watch How It Works (90s)** (jumps to the Career Match section until a video link is added; search `LINK: "how it works" video`). Gold light ribbons drift behind the headline. Four feature items (Discover Career Paths, Understand Requirements, Get Starter Training, Build Your Plan) sit along the bottom of the hero, and the whole hero fits one screen.
+
 The hero follows the Career Intelligence Map mockup:
 - Your desk photo (gold-lit wall, vase, city window, marble desk with the V notebook and coffee) runs full width along the bottom of the hero and fades into the dark wall above it. Swap it at `--backdrop` near the end of the style blocks; a copy is in `images/hero-backdrop.jpg`.
 - Fonts: the headline is Cormorant Garamond Italic, weight 400. Navigation and body text are Inter 400–500. Small uppercase labels are Inter 600 with 3px letter spacing.
