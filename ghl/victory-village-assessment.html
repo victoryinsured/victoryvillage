@@ -155,15 +155,58 @@
     #vva .meta { flex-direction: column; align-items: center; }
     #vva::before { min-height: 0; top: 40%; aspect-ratio: auto; background-position: 28% bottom; }
   }
+
+  /* MATCH THE SALES PAGE: menu buttons, big centered italic headline above the glowing panel */
+  #vva .top { padding: 22px clamp(16px, 4vw, 64px); }
+  #vva .logo svg { width: 52px; }
+  #vva .logo em { font-size: 19px; }
+  #vva .top-cta { display: flex; gap: 12px; align-items: center; }
+  #vva .top-cta .btn { padding: 11px 20px; font-size: 14px; white-space: nowrap; }
+  #vva .top-cta .btn-outline { color: #f1e8da; border-color: rgba(242,196,107,.55); background: rgba(11,9,7,.35); }
+  #vva main { flex-direction: column; justify-content: flex-start; padding-top: clamp(10px, 3.5vh, 44px); }
+  #vva .page-head { text-align: center; max-width: 1240px; margin-bottom: clamp(18px, 3.2vh, 36px); }
+  #vva .page-head[hidden] { display: none; }
+  #vva .page-head .eyebrow { font-size: 12px; gap: 22px; }
+  #vva .page-head .eyebrow::before, #vva .page-head .eyebrow::after { width: 64px; }
+  #vva .page-head h1 { white-space: nowrap; font-size: clamp(32px, min(4.5vw, 6.6vh), 74px); line-height: 1.08; margin: clamp(10px, 1.6vh, 18px) 0 clamp(8px, 1.2vh, 14px); text-shadow: 0 2px 18px rgba(40,20,14,.55); }
+  #vva .page-head .lead { font-size: clamp(15px, 2.05vh, 20px); color: #e6dccd; max-width: 900px; margin: 0 auto; text-wrap: balance; text-shadow: 0 2px 18px rgba(40,20,14,.55); }
+  #vva .card { width: min(1000px, 100%); border-radius: 24px; background: linear-gradient(180deg, rgba(30,21,16,.70), rgba(14,10,7,.78)); box-shadow: 0 0 24px rgba(242,196,107,.28), 0 0 70px rgba(217,164,65,.14), 0 40px 80px rgba(0,0,0,.55); }
+  #vva .intro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 26px; }
+  #vva .intro-item { border: 1px solid rgba(233,220,203,.22); border-radius: 16px; padding: 18px 12px; background: rgba(11,9,7,.5); }
+  #vva .intro-item b { display: block; font-family: var(--serif); font-weight: 600; font-size: 38px; line-height: 1; color: var(--gold-light); }
+  #vva .intro-item span { display: block; margin-top: 6px; font: 600 10.5px var(--sans); letter-spacing: 2.4px; text-transform: uppercase; color: var(--muted); }
+  #vva .btn.big { padding: clamp(14px, 2vh, 18px) 46px; font-size: clamp(16px, 2vh, 18px); }
+  @media (max-width: 900px) { #vva .page-head h1 { white-space: normal; font-size: clamp(32px, 7vw, 46px); text-wrap: balance; } }
+  @media (max-width: 640px) {
+    #vva .opts { grid-template-columns: 1fr; }
+    #vva .top-cta .btn-outline { display: none; }
+    #vva .top-cta .btn { padding: 9px 12px; font-size: 12.5px; }
+    #vva .top-cta .btn span { display: none; }
+    #vva .intro-grid { gap: 8px; }
+    #vva .intro-item b { font-size: 28px; }
+    #vva .intro-item span { font-size: 9px; letter-spacing: 1.5px; }
+    #vva .page-head .eyebrow::before, #vva .page-head .eyebrow::after { width: 28px; }
+    #vva .page-head .eyebrow { font-size: 10px; gap: 12px; }
+  }
 </style>
 
 <div id="vva">
   <header class="top">
     <!-- LINK: home page -->
     <a class="logo" href="https://thevictoryvillage.com" aria-label="Victory Society home"><svg class="laurel" viewBox="0 0 60 48" aria-hidden="true"><path d="M26.47 41.63 A17 17 0 0 1 20.99 10.58" fill="none" stroke="currentColor" stroke-width="1"/><path d="M33.53 41.63 A17 17 0 0 0 39.01 10.58" fill="none" stroke="currentColor" stroke-width="1"/><g fill="currentColor"><ellipse cx="23.30" cy="43.42" rx="4.40" ry="1.90" transform="rotate(-132.0 23.30 43.42)"/><ellipse cx="21.01" cy="36.50" rx="4.22" ry="1.83" transform="rotate(-170.0 21.01 36.50)"/><ellipse cx="13.75" cy="35.96" rx="4.04" ry="1.76" transform="rotate(-96.0 13.75 35.96)"/><ellipse cx="15.97" cy="29.02" rx="3.86" ry="1.69" transform="rotate(-134.0 15.97 29.02)"/><ellipse cx="10.41" cy="24.32" rx="3.68" ry="1.62" transform="rotate(-60.0 10.41 24.32)"/><ellipse cx="16.28" cy="20.01" rx="3.50" ry="1.55" transform="rotate(-98.0 16.28 20.01)"/><ellipse cx="14.55" cy="12.93" rx="3.32" ry="1.48" transform="rotate(-24.0 14.55 12.93)"/><ellipse cx="21.42" cy="13.19" rx="3.14" ry="1.41" transform="rotate(-64.0 21.42 13.19)"/><ellipse cx="36.70" cy="43.42" rx="4.40" ry="1.90" transform="rotate(312.0 36.70 43.42)"/><ellipse cx="38.99" cy="36.50" rx="4.22" ry="1.83" transform="rotate(350.0 38.99 36.50)"/><ellipse cx="46.25" cy="35.96" rx="4.04" ry="1.76" transform="rotate(276.0 46.25 35.96)"/><ellipse cx="44.03" cy="29.02" rx="3.86" ry="1.69" transform="rotate(314.0 44.03 29.02)"/><ellipse cx="49.59" cy="24.32" rx="3.68" ry="1.62" transform="rotate(240.0 49.59 24.32)"/><ellipse cx="43.72" cy="20.01" rx="3.50" ry="1.55" transform="rotate(278.0 43.72 20.01)"/><ellipse cx="45.45" cy="12.93" rx="3.32" ry="1.48" transform="rotate(204.0 45.45 12.93)"/><ellipse cx="38.58" cy="13.19" rx="3.14" ry="1.41" transform="rotate(244.0 38.58 13.19)"/></g><text x="30" y="34" text-anchor="middle" font-family="'Cormorant Garamond', Georgia, serif" font-size="25" font-weight="600" fill="currentColor">V</text></svg><span><em>Victory<br>Society</em><small>by Victory Institute</small></span></a>
-    <a class="exit" href="https://thevictoryvillage.com">Back to site</a>
+    <div class="top-cta">
+      <!-- LINK: login -->
+      <a class="btn btn-outline" href="https://portal.thevictoryvillage.com">Log In</a>
+      <!-- LINK: membership page -->
+      <a class="btn" href="https://thevictoryvillage.com/membership">Join Victory Society <span aria-hidden="true">&rarr;</span></a>
+    </div>
   </header>
   <main>
+    <div class="page-head">
+      <div class="eyebrow">The Career Assessment</div>
+      <h1>What Can Your Experience Become?</h1>
+      <p class="lead">Answer 10 quick questions. We&rsquo;ll show you the claims roles you&rsquo;re already closest to, the skills you&rsquo;re bringing with you, and your next step.</p>
+    </div>
     <div class="card" id="vva-card" aria-live="polite"></div>
   </main>
 </div>
@@ -251,21 +294,25 @@
     return 'starting';
   }
 
-  var card = document.getElementById('vva-card');
+  var card = document.getElementById('vva-card'), head = document.querySelector('#vva .page-head');
   var answers = {}, i = -1, contact = {};
   function esc(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
   function intro() {
+    head.hidden = false;
     card.innerHTML = '<div class="step center">' +
-      '<div class="eyebrow">Victory Career Assessment</div>' +
-      '<h1>What Can Your Experience Become?</h1>' +
-      '<p class="sub">Answer 10 quick questions. We’ll show you the claims roles you’re already closest to, the skills you’re bringing with you, and your next step.</p>' +
-      '<div class="meta"><span>About 3 minutes</span><span>10 questions</span><span>Free results</span></div>' +
-      '<button class="btn" type="button" id="vva-start">Start My Assessment <span aria-hidden="true">&rarr;</span></button></div>';
+      '<div class="intro-grid">' +
+      '<div class="intro-item"><b>10</b><span>Quick questions</span></div>' +
+      '<div class="intro-item"><b>3 min</b><span>Start to finish</span></div>' +
+      '<div class="intro-item"><b>5</b><span>Career Lanes</span></div>' +
+      '</div>' +
+      '<button class="btn big" type="button" id="vva-start">Start My Assessment <span aria-hidden="true">&rarr;</span></button>' +
+      '<p class="hint" style="margin-top:14px">Free &middot; Your results show right away</p></div>';
     document.getElementById('vva-start').onclick = function () { i = 0; question(); };
   }
 
   function question() {
+    head.hidden = true;
     var q = Q[i], cur = answers[q.id], multi = q.type === 'multi', long = q.opts.some(function (o) { return o.length > 46; });
     var html = '<div class="step">' +
       '<div class="progress"><div class="bar"><i style="width:' + Math.round(i / Q.length * 100) + '%"></i></div><div class="count">' + (i + 1) + ' / ' + Q.length + '</div></div>' +
