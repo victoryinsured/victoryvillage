@@ -73,8 +73,8 @@ What's on the page:
 - **"Welcome to our Help Center"** with a search bar over a soft gold and blush gradient. Results show as you type; click one to open the answer. Popular questions sit under the search bar.
 - **Six topic cards** (Getting Started, Membership & Billing, Courses & Training, Job Board, Community & Events, Technical Help). Each has an icon tile and "Browse questions →".
 - **Article view:** categories on the left (with their own filter box and a "Need more help? Submit ticket" card), the answer on the right with a breadcrumb, "Was this helpful?", and related questions.
-- **Contact options:** Submit a Ticket, Live Chat (shows Online Mon–Fri 9 AM–6 PM Eastern, Offline otherwise), Book a Call, and Email (support@victoryinsured.com).
-- **Book a Support Call** panel with your GHL booking calendar (widget `BWLUOaYsIjb80FvxDmVh`), then a burgundy "Still need help?" band and the footer.
+- **Contact options:** Submit a Ticket, Live Chat (shows Online Mon–Fri 9 AM–6 PM Eastern, Offline otherwise), and Email (support@victoryinsured.com).
+- A burgundy "Still need help?" band and the footer. (There is no booking calendar on the support page; it stays on the membership page.)
 
 **To edit questions:** change the `ARTICLES` list in the last `<script>` (each has a topic, question and answer). Topics live in `TOPICS` just above it.
 
