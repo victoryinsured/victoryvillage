@@ -66,8 +66,6 @@ Search each file for `LINK:` to find every button. **Log In** goes to `https://p
 Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero that matches the sales page (desk photo with the blush light, a menu with only Log In and Join Victory Society, the italic headline, and a glowing panel with the three offers), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
 
 ## Support page
-The hero matches the sales page: desk photo with the blush light, a menu with only Student Portal and Join Victory Society, the italic headline "We're Here to Help.", the search bar, and the six help topics in a glowing panel. The search and help topics work the same as before.
-
 Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
 
 **Links to set** (search `victory-village-support.html` for `LINK:`). These are placeholders until you send the real ones:
