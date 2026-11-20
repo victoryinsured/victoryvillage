@@ -14,7 +14,7 @@ The pages link to each other through `https://thevictoryvillage.com/membership` 
 ## Light membership page
 The **membership page** used to be light; it now matches the dark sales page. (Old note:) The membership page was light from top to bottom: ivory and white backgrounds, dark text and gold accents, with only the footer dark. In the hero, the menu sits on its own ivory strip and the lounge photo fades into ivory on the left, where the headline is. The light colors live in the `LIGHT SECTIONS` style block near the top of that file; any section with `class="light"` uses them.
 
-The **career assessment** and **support** pages stay in the original dark style.
+The **support** page is now a light help center (see below). The **career assessment** page matches the sales page.
 
 ## Add it to GoHighLevel
 1. Go to **Sites → Websites (or Funnels) →** your page → **Edit**.
@@ -65,22 +65,22 @@ Search each file for `LINK:` to find every button. **Log In** goes to `https://p
 ## Membership page
 Set it up like the others (full-width section, Custom JS/HTML element, page background `#0b0907`). It has: a hero that matches the sales page (desk photo with the blush light, a menu with only Log In and Join Victory Society, the italic headline, and a glowing panel with the three offers), How It Works in three steps, the three plans, a Toolkit-vs-Pro comparison table, the four Strategy Sessions, membership FAQs, and a closing call to action. The FAQ about upgrading says members contact support to switch plans; change it if upgrading works another way.
 
-## Support page
-Set it up the same way as the home page (full-width section, Custom JS/HTML element, page background `#0b0907`).
+## Support page (Help Center)
+`victory-village-support.html` is a light, airy help center in the cream, burgundy, gold and blush colors. In GHL, set the **page background to `#fbf7f2`** (not the dark color), using the same full-width section and Custom JS/HTML element as the other pages. The older dark support page is saved as `victory-village-support-classic.html` if you ever want it back.
 
-**Links to set** (search `victory-village-support.html` for `LINK:`). These are placeholders until you send the real ones:
-- **Open a Ticket:** `https://thevictoryvillage.com/support-ticket`. Point it at a GHL form or survey page.
-- **Schedule:** scrolls to the **Book a Support Call** panel, which holds your GHL booking calendar embed (widget `BWLUOaYsIjb80FvxDmVh`). A backup link opens the booking page directly if the calendar doesn't load.
-- **Email Us / General Inquiries:** `support@victoryinsured.com` (also shown as text on the card). Live Chat buttons fall back to this address when the GHL chat widget isn't installed.
-- **Start Chat / Chat with Us:** opens the GHL chat widget if it's installed on the page (Sites → Chat Widget). If it isn't, the buttons fall back to the support email.
+What's on the page:
+- **Floating pill menu** with Home, Membership, Student Portal, Contact and a burgundy **Submit ticket** button.
+- **"Welcome to our Help Center"** with a search bar over a soft gold and blush gradient. Results show as you type; click one to open the answer. Popular questions sit under the search bar.
+- **Six topic cards** (Getting Started, Membership & Billing, Courses & Training, Job Board, Community & Events, Technical Help). Each has an icon tile and "Browse questions →".
+- **Article view:** categories on the left (with their own filter box and a "Need more help? Submit ticket" card), the answer on the right with a breadcrumb, "Was this helpful?", and related questions.
+- **Contact options:** Submit a Ticket, Live Chat (shows Online Mon–Fri 9 AM–6 PM Eastern, Offline otherwise), Book a Call, and Email (support@victoryinsured.com).
+- **Book a Support Call** panel with your GHL booking calendar (widget `BWLUOaYsIjb80FvxDmVh`), then a burgundy "Still need help?" band and the footer.
 
-**What works on its own:**
-- The search bar filters the FAQ as you type. Press Enter to jump to the answers.
-- Clicking a help topic card (Get Started, Account & Billing, and so on) shows only the questions about that topic.
-- The Live Chat card says **Online** Monday to Friday, 9 AM to 6 PM Eastern, and **Offline** the rest of the time.
-- FAQ questions open and close when clicked. Edit the answers in the `<details>` blocks.
+**To edit questions:** change the `ARTICLES` list in the last `<script>` (each has a topic, question and answer). Topics live in `TOPICS` just above it.
 
-**Images:** every photo slot is listed at the bottom of the `<style>` block (search `IMAGE:`): the hero background, the "Still Need Help?" background, and the four Help Center cards. Until you send photos, each slot shows a matching gold/black placeholder.
+**Links to set** (search the file for `LINK:`):
+- **Submit ticket:** placeholder `https://thevictoryvillage.com/support-ticket`. Point it at a GHL form or survey page.
+- **Live Chat** opens the GHL chat widget if it's installed (Sites → Chat Widget); otherwise it falls back to email.
 
 ## Career Assessment page
 `victory-village-assessment.html` is a 10-question assessment in the same style as the sales hero. Visitors answer one question per screen, enter their name and email, and see their **Career Lane**, the claims roles to target, the skills they bring, where it can lead, and the right offer (the $47 Toolkit for people just starting, a $100 Strategy Session for people with claims experience, a license, or interview trouble).
