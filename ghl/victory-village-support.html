@@ -116,8 +116,10 @@
   #vvs .sec-head p { color: var(--ink-2); }
 
   /* article view */
-  #vvs .kb { display: grid; grid-template-columns: 300px 1fr; gap: 28px; align-items: start; }
-  #vvs .side { display: grid; gap: 18px; position: sticky; top: 20px; }
+  #vvs .kb { display: grid; grid-template-columns: 300px 1fr; gap: 28px; align-items: stretch; }
+  #vvs .side { display: flex; flex-direction: column; gap: 18px; }
+  #vvs .kb > :last-child { display: flex; flex-direction: column; }
+  #vvs .kb > :last-child > .article { flex: 1; }
   #vvs .side-box { background: var(--card); border: 1px solid var(--line); border-radius: 20px; padding: 18px; box-shadow: 0 10px 30px rgba(90,60,30,.05); }
   #vvs .side-search { position: relative; margin-bottom: 10px; }
   #vvs .side-search input { width: 100%; font: 400 14px var(--sans); border: 1px solid var(--line); border-radius: 999px; padding: 10px 38px 10px 16px; outline: none; background: #fffdf9; }
@@ -132,7 +134,8 @@
   #vvs .cat li button { text-align: left; font-size: 13.5px; color: var(--ink-2); padding: 5px 8px; border-radius: 8px; width: 100%; }
   #vvs .cat li button:hover { background: var(--gold-soft); }
   #vvs .cat li button[aria-current="true"] { color: var(--burg); font-weight: 600; background: var(--gold-soft); }
-  #vvs .help-card { text-align: left; }
+  #vvs .help-card { text-align: left; flex: 1; display: flex; flex-direction: column; align-items: flex-start; }
+  #vvs .help-card .btn { margin-top: auto; }
   #vvs .help-card .tile { margin-bottom: 12px; width: 44px; height: 44px; }
   #vvs .help-card h4 { font: 700 21px var(--serif); margin-bottom: 4px; }
   #vvs .help-card p { font-size: 14px; color: var(--ink-2); margin-bottom: 14px; }
